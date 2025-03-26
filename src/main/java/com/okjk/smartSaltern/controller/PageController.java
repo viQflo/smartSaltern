@@ -12,6 +12,11 @@ public class PageController {
         return "index"; // templates/index.html 파일을 반환
     }
     
+    @RequestMapping("/main")
+    public String main() {
+        return "main"; // templates/index.html 파일을 반환
+    }
+    
     @RequestMapping("/login")
     public String login() {
     	return "login";
