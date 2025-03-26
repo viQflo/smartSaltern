@@ -17,6 +17,11 @@ public class PageController {
         return "main"; // templates/index.html 파일을 반환
     }
     
+    @RequestMapping("/header")
+    public String header() {
+        return "header"; // templates/index.html 파일을 반환
+    }
+    
     @RequestMapping("/login")
     public String login() {
     	return "login";
