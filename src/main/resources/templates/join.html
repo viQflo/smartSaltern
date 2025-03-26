@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Register - SB Admin Pro</title>
+        <title>회원가입</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -21,55 +21,67 @@
                             <div class="col-lg-7">
                                 <!-- Basic registration form-->
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header justify-content-center"><h3 class="fw-light my-4">Create Account</h3></div>
+                                    <div class="card-header justify-content-center"><h3 class="fw-light my-4">회원가입</h3></div>
                                     <div class="card-body">
                                         <!-- Registration form-->
                                         <form>
-                                            <!-- Form Row-->
                                             <div class="row gx-3">
                                                 <div class="col-md-6">
-                                                    <!-- Form Group (first name)-->
+                                                    <!-- 이메일-->
                                                     <div class="mb-3">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter first name" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <!-- Form Group (last name)-->
-                                                    <div class="mb-3">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter last name" />
+                                                        <label class="small mb-1" for="inputEmail">이메일</label>
+                                                        <input class="form-control" id="inputEmail" type="text" placeholder="smhrd@smhrd.com" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Form Group (email address)            -->
-                                            <div class="mb-3">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
-                                            </div>
-                                            <!-- Form Row    -->
+                                            <!--  두번째 행  -->
                                             <div class="row gx-3">
                                                 <div class="col-md-6">
-                                                    <!-- Form Group (password)-->
+                                                    <!-- 비밀번호-->
                                                     <div class="mb-3">
-                                                        <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <label class="small mb-1" for="inputPassword">비밀번호</label>
+                                                        <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호를 입력해주세요" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <!-- Form Group (confirm password)-->
                                                     <div class="mb-3">
-                                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                        <label class="small mb-1" for="inputRePassword">비밀번호 재확인</label>
+                                                        <input class="form-control" id="inputRePassword" type="password" aria-describedby="emailHelp" placeholder="비밀번호를 입력해주세요" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Form Group (create account submit)-->
-                                            <a class="btn btn-primary btn-block" href="auth-login-basic.html">Create Account</a>
+                                            <!--  세번째 행  -->
+                                            <div class="row gx-3">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="small mb-1" for="inputGender">성별 <br>
+                                                            <input type="radio" name="gender" value="male"> 남성
+                                                            <input type="radio" name="gender" value="female"> 여성
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  네번째 행  -->
+                                            <div class="row gx-3">    
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="small mb-1" for="inputCompanyName">회사명</label>
+                                                        <input class="form-control" id="inputCompanyName" type="text" placeholder="본인이 속한 회사명을 입력해주세요" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="small mb-1" for="inputDepartment">부서</label>
+                                                        <input class="form-control" id="inputDepartment" type="text" placeholder="부서를 입력해주세요" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 회원가입 제출하기-->
+                                            <a class="btn btn-primary btn-block" href="auth-login-basic.html">회원가입하기</a>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="auth-login-basic.html">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="auth-login-basic.html">로그인 하러 가기</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,12 +93,7 @@
                 <footer class="footer-admin mt-auto footer-dark">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
-                            <div class="col-md-6 text-md-end small">
-                                <a href="#!">Privacy Policy</a>
-                                &middot;
-                                <a href="#!">Terms &amp; Conditions</a>
-                            </div>
+                            <div class="col-md-6 small">솔튼루션(saltlution) &copy; 옹기종기</div>
                         </div>
                     </div>
                 </footer>

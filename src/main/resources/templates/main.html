@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>메인페이지</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <script data-search-pseudo-elements defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+   
+    .hero-section {
+        background: url('your-image.jpg') no-repeat center center;
+        background-size: cover;
+        color: rgb(99, 185, 219);
+        padding: 100px 0;
+        justify-self: center;
+    }
+    .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+    .feature-card {
+        text-align: center;
+        padding: 30px;
+    }
+    .cta-button {
+        background-color: #01b94e;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    .cta-button:hover {
+        background-color: #0056b3;
+    }
+ 
+</style>
+
+
+    <body class="nav-fixed">
+         <!-- 헤더 포함될 부분 -->
+         <div id="header"></div>
+
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1>효율적인 염전 관리, 자동화 시스템으로 미래를 준비하세요!</h1>
+                <p>기상 데이터를 분석하고 생산량을 예측하여 염전 운영의 효율성을 높이는 스마트 솔루션</p>
+                <button class="cta-button">시스템 소개 보기</button>
+            </section>
+            <!-- Key Features -->
+            <section class="container my-5">
+                <h2 class="text-center mb-4">우리 시스템의 핵심 기능</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-cloud-sun"></i>
+                            <h4>기상 데이터 분석</h4>
+                            <p>실시간 기상 데이터를 분석하여 최적의 생산 시기를 예측합니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-chart-line"></i>
+                            <h4>생산량 예측</h4>
+                            <p>정확한 분석으로 생산량을 예측하여 자원을 미리 준비할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-cogs"></i>
+                            <h4>자동화 시스템</h4>
+                            <p>자동화된 시스템으로 염전 운영을 실시간으로 제어하고 관리할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <div>
+            <!-- Demo CTA -->
+            <section class="container text-center my-5">
+                <h2>시스템 관리 요청</h2>
+                <p>실시간 데이터 분석과 예측 시스템을 경험해보세요. 체험하기를 누르면 더 많은 내용을 제공 받을 수 있습니다.</p>
+                <button class="cta-button">체험 요청하기</button>
+            </section>
+        </div>
+        <!-- 푸터 포함될 부분 -->
+        <div id="footer"></div>
+
+        <script>
+            // 헤더 HTML을 불러와서 삽입
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('헤더 파일을 로드할 수 없습니다');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                })
+                .catch(error => console.error("헤더 로드 에러:", error));
+
+    
+            // 푸터 HTML을 불러와서 삽입
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer').innerHTML = data);
+        </script>
+        
+</body>
+</html>
