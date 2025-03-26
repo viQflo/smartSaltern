@@ -71,7 +71,7 @@
 		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
 		<!-- * * * * * * When using an image, we recommend the SVG format.-->
 		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.html">SaltLution</a>
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" th:href="@{/main}">SaltLution</a>
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
 			<!-- 알림창 -->
@@ -185,7 +185,7 @@
 						</div>
 					</h6>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#!">
+					<a class="dropdown-item" href="account-profile.html">
 						<div class="dropdown-item-icon">
 							<i data-feather="settings"></i>
 						</div> 계정
@@ -236,7 +236,7 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavPages">
-								<a class="nav-link" href="dashboard-1.html"> 대시보드 <span
+								<a class="nav-link" href="dashboard"> 대시보드 <span
 									class="badge bg-primary-soft text-primary ms-auto">업데이트</span>
 								</a> <a class="nav-link" href="index.html">지도</a> <a
 									class="nav-link" href="index.html">달력</a>
@@ -282,7 +282,7 @@
 						<!-- 마이페이지-->
 						<div class="sidenav-menu-heading">마이페이지</div>
 						<!-- 프로필관리 -->
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="account-profile.html" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
 							aria-controls="collapseLayouts">
 							<div class="nav-link-icon">
@@ -432,7 +432,13 @@
 			<button class="cta-button">체험 요청하기</button>
 		</section>
 	</div>
-
+	<footer class="footer-admin mt-auto footer-light">
+        <div class="container-xl px-4">
+            <div class="row">
+                <div class="col-md-6 small">솔튼루션(saltlution) &copy; 옹기종기</div>
+            </div>
+        </div>
+    </footer>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

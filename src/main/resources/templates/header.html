@@ -24,7 +24,7 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="nav-fixed">
-	<nav
+		<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
 		id="sidenavAccordion">
 		<!-- Sidenav Toggle Button-->
@@ -37,7 +37,7 @@
 		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
 		<!-- * * * * * * When using an image, we recommend the SVG format.-->
 		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.html">Saltlution</a>
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" th:href="@{/main}">SaltLution</a>
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
 			<!-- 알림창 -->
@@ -100,7 +100,7 @@
 							<div class="dropdown-notifications-item-content-text">새로운
 								사용자 요청. Woody가 조직 접근을 요청했습니다.</div>
 						</div>
-					</a> <a class="dropdown-item dropdown-notifications-footer" href="#!">모든알림
+					</a> <a class="dropdown-item dropdown-notifications-footer" href="alert.html">모든알림
 						보기</a>
 				</div>
 			</li>
@@ -128,7 +128,7 @@
 						</div>
 					</a>
 					<!-- Footer Link-->
-					<a class="dropdown-item dropdown-notifications-footer" href="#!">모든
+					<a class="dropdown-item dropdown-notifications-footer" href="message.html">모든
 						메시지보기</a>
 				</div>
 			</li>
@@ -151,7 +151,7 @@
 						</div>
 					</h6>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#!">
+					<a class="dropdown-item" href="account-profile.html">
 						<div class="dropdown-item-icon">
 							<i data-feather="settings"></i>
 						</div> 계정
@@ -202,7 +202,7 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavPages">
-								<a class="nav-link" href="dashboard-1.html"> 대시보드 <span
+								<a class="nav-link" href="dashboard"> 대시보드 <span
 									class="badge bg-primary-soft text-primary ms-auto">업데이트</span>
 								</a> <a class="nav-link" href="index.html">지도</a> <a
 									class="nav-link" href="index.html">달력</a>
@@ -245,12 +245,10 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-
-
 						<!-- 마이페이지-->
 						<div class="sidenav-menu-heading">마이페이지</div>
 						<!-- 프로필관리 -->
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="account-profile.html" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
 							aria-controls="collapseLayouts">
 							<div class="nav-link-icon">
@@ -297,6 +295,7 @@
 										<i class="fas fa-angle-down"></i>
 									</div>
 								</a>
+							</nav>
 						</div>
 						<!-- 기상 정보 등록 -->
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -353,8 +352,11 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
+					</div>	
+				</div>
 			</nav>
 		</div>
+	</div>
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
