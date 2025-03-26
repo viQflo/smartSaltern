@@ -2,12 +2,23 @@ package com.okjk.smartSaltern.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String home() {
         return "index"; // templates/index.html 파일을 반환
+    }
+    
+    @RequestMapping("/login")
+    public String login() {
+    	return "login";
+    }
+    
+    @RequestMapping("/join")
+    public String join() {
+    	return "join";
     }
 }
