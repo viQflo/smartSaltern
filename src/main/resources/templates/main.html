@@ -4,458 +4,456 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>메인페이지</title>
 <link
-   href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-   rel="stylesheet" />
+	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+	rel="stylesheet" />
 <link
-   href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
-   rel="stylesheet" />
+	href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+	rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
 <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
 <script data-search-pseudo-elements defer
-   src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
-   crossorigin="anonymous"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+	crossorigin="anonymous"></script>
 <script
-   src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
-   crossorigin="anonymous"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+	crossorigin="anonymous"></script>
 </head>
 <style>
 .hero-section {
-   background: url('your-image.jpg') no-repeat center center;
-   background-size: cover;
-   color: rgb(99, 185, 219);
-   padding: 100px 0;
-   justify-self: center;
+	background: url('your-image.jpg') no-repeat center center;
+	background-size: cover;
+	color: rgb(99, 185, 219);
+	padding: 100px 0;
+	justify-self: center;
 }
 
 .feature-icon {
-   font-size: 3rem;
-   margin-bottom: 15px;
+	font-size: 3rem;
+	margin-bottom: 15px;
 }
 
 .feature-card {
-   text-align: center;
-   padding: 30px;
+	text-align: center;
+	padding: 30px;
 }
 
 .cta-button {
-   background-color: #01b94e;
-   color: white;
-   padding: 15px 30px;
-   border: none;
-   font-size: 1.2rem;
-   cursor: pointer;
+	background-color: #01b94e;
+	color: white;
+	padding: 15px 30px;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
 }
 
 .cta-button:hover {
-   background-color: #0056b3;
+	background-color: #0056b3;
 }
 </style>
 
 
 <body class="nav-fixed">
-   <nav
-      class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
-      id="sidenavAccordion">
-      <!-- Sidenav Toggle Button-->
-      <button
-         class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0"
-         id="sidebarToggle">
-         <i data-feather="menu"></i>
-      </button>
-      <!-- Navbar Brand-->
-      <!-- * * Tip * * You can use text or an image for your navbar brand.-->
-      <!-- * * * * * * When using an image, we recommend the SVG format.-->
-      <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-      <a class="navbar-brand pe-3 ps-4 ps-lg-2" th:href="@{/main}">SaltLution</a>
-      <!-- Navbar Items-->
-      <ul class="navbar-nav align-items-center ms-auto">
-         <!-- 알림창 -->
-         <li
-            class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
-            <a class="btn btn-icon btn-transparent-dark dropdown-toggle"
-            id="navbarDropdownAlerts" href="javascript:void(0);" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-               data-feather="bell"></i></a>
-            <div
-               class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
-               aria-labelledby="navbarDropdownAlerts">
-               <h6 class="dropdown-header dropdown-notifications-header">
-                  <i class="me-2" data-feather="bell"></i> 알림
-               </h6>
-               <!-- Example Alert 1-->
-               <a class="dropdown-item dropdown-notifications-item" href="#!">
-                  <div class="dropdown-notifications-item-icon bg-warning">
-                     <i data-feather="activity"></i>
-                  </div>
-                  <div class="dropdown-notifications-item-content">
-                     <div class="dropdown-notifications-item-content-details">메시지
-                        날짜</div>
-                     <div class="dropdown-notifications-item-content-text">이것은
-                        알림 메시지입니다. 심각한 내용은 아니지만, 주의가 필요합니다.</div>
-                  </div>
-               </a>
-               <!-- Example Alert 2-->
-               <a class="dropdown-item dropdown-notifications-item" href="#!">
-                  <div class="dropdown-notifications-item-icon bg-info">
-                     <i data-feather="bar-chart"></i>
-                  </div>
-                  <div class="dropdown-notifications-item-content">
-                     <div class="dropdown-notifications-item-content-details">메시지
-                        날짜</div>
-                     <div class="dropdown-notifications-item-content-text">새로운
-                        월간 보고서가 준비되었습니다. 클릭하여 확인하세요</div>
-                  </div>
-               </a>
-               <!-- Example Alert 3-->
-               <a class="dropdown-item dropdown-notifications-item" href="#!">
-                  <div class="dropdown-notifications-item-icon bg-danger">
-                     <i class="fas fa-exclamation-triangle"></i>
-                  </div>
-                  <div class="dropdown-notifications-item-content">
-                     <div class="dropdown-notifications-item-content-details">메시지
-                        날짜</div>
-                     <div class="dropdown-notifications-item-content-text">심각한
-                        시스템 오류, 시스템 종료 중</div>
-                  </div>
-               </a>
-               <!-- Example Alert 4-->
-               <a class="dropdown-item dropdown-notifications-item" href="#!">
-                  <div class="dropdown-notifications-item-icon bg-success">
-                     <i data-feather="user-plus"></i>
-                  </div>
-                  <div class="dropdown-notifications-item-content">
-                     <div class="dropdown-notifications-item-content-details">메시지
-                        날짜</div>
-                     <div class="dropdown-notifications-item-content-text">새로운
-                        사용자 요청. Woody가 조직 접근을 요청했습니다.</div>
-                  </div>
-               </a> <a class="dropdown-item dropdown-notifications-footer" href="#!">모든알림
-                  보기</a>
-            </div>
-         </li>
-         <!-- 메시지 확인하기기-->
-         <li
-            class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
-            <a class="btn btn-icon btn-transparent-dark dropdown-toggle"
-            id="navbarDropdownMessages" href="javascript:void(0);" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-               data-feather="mail"></i></a>
-            <div
-               class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
-               aria-labelledby="navbarDropdownMessages">
-               <h6 class="dropdown-header dropdown-notifications-header">
-                  <i class="me-2" data-feather="mail"></i> 메시지창
-               </h6>
-               <!-- 예시 메시지지 1  -->
-               <a class="dropdown-item dropdown-notifications-item" href="#!">
-                  <img class="dropdown-notifications-item-img"
-                  src="assets/img/illustrations/profiles/profile-2.png" />
-                  <div class="dropdown-notifications-item-content">
-                     <div class="dropdown-notifications-item-content-text">안녕안녕안녕녕</div>
-                     <div class="dropdown-notifications-item-content-details">보낸사람
-                        · 58분 전</div>
-                  </div>
-               </a>
-               <!-- Footer Link-->
-               <a class="dropdown-item dropdown-notifications-footer" href="#!">모든
-                  메시지보기</a>
-            </div>
-         </li>
-         <!-- 사용자 Dropdown-->
-         <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
-            <a class="btn btn-icon btn-transparent-dark dropdown-toggle"
-            id="navbarDropdownUserImage" href="javascript:void(0);"
-            role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"><img class="img-fluid"
-               src="assets/img/illustrations/profiles/profile-1.png" /></a>
-            <div
-               class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
-               aria-labelledby="navbarDropdownUserImage">
-               <h6 class="dropdown-header d-flex align-items-center">
-                  <img class="dropdown-user-img"
-                     src="assets/img/illustrations/profiles/profile-1.png" />
+	<nav
+		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
+		id="sidenavAccordion">
+		<!-- Sidenav Toggle Button-->
+		<button
+			class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0"
+			id="sidebarToggle">
+			<i data-feather="menu"></i>
+		</button>
+		<!-- Navbar Brand-->
+		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
+		<!-- * * * * * * When using an image, we recommend the SVG format.-->
+		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" th:href="@{/main}">SaltLution</a>
+		<!-- Navbar Items-->
+		<ul class="navbar-nav align-items-center ms-auto">
+			<!-- 알림창 -->
+			<li
+				class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownAlerts" href="javascript:void(0);" role="button"
+				data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+					data-feather="bell"></i></a>
+				<div
+					class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownAlerts">
+					<h6 class="dropdown-header dropdown-notifications-header">
+						<i class="me-2" data-feather="bell"></i> 알림
+					</h6>
+					<!-- Example Alert 1-->
+					<a class="dropdown-item dropdown-notifications-item" href="#!">
+						<div class="dropdown-notifications-item-icon bg-warning">
+							<i data-feather="activity"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">메시지
+								날짜</div>
+							<div class="dropdown-notifications-item-content-text">이것은
+								알림 메시지입니다. 심각한 내용은 아니지만, 주의가 필요합니다.</div>
+						</div>
+					</a>
+					<!-- Example Alert 2-->
+					<a class="dropdown-item dropdown-notifications-item" href="#!">
+						<div class="dropdown-notifications-item-icon bg-info">
+							<i data-feather="bar-chart"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">메시지
+								날짜</div>
+							<div class="dropdown-notifications-item-content-text">새로운
+								월간 보고서가 준비되었습니다. 클릭하여 확인하세요</div>
+						</div>
+					</a>
+					<!-- Example Alert 3-->
+					<a class="dropdown-item dropdown-notifications-item" href="#!">
+						<div class="dropdown-notifications-item-icon bg-danger">
+							<i class="fas fa-exclamation-triangle"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">메시지
+								날짜</div>
+							<div class="dropdown-notifications-item-content-text">심각한
+								시스템 오류, 시스템 종료 중</div>
+						</div>
+					</a>
+					<!-- Example Alert 4-->
+					<a class="dropdown-item dropdown-notifications-item" href="#!">
+						<div class="dropdown-notifications-item-icon bg-success">
+							<i data-feather="user-plus"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">메시지
+								날짜</div>
+							<div class="dropdown-notifications-item-content-text">새로운
+								사용자 요청. Woody가 조직 접근을 요청했습니다.</div>
+						</div>
+					</a> <a class="dropdown-item dropdown-notifications-footer" href="#!">모든알림
+						보기</a>
+				</div>
+			</li>
+			<!-- 메시지 확인하기기-->
+			<li
+				class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownMessages" href="javascript:void(0);" role="button"
+				data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+					data-feather="mail"></i></a>
+				<div
+					class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownMessages">
+					<h6 class="dropdown-header dropdown-notifications-header">
+						<i class="me-2" data-feather="mail"></i> 메시지창
+					</h6>
+					<!-- 예시 메시지지 1  -->
+					<a class="dropdown-item dropdown-notifications-item" href="#!">
+						<img class="dropdown-notifications-item-img"
+						src="assets/img/illustrations/profiles/profile-2.png" />
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-text">안녕안녕안녕녕</div>
+							<div class="dropdown-notifications-item-content-details">보낸사람
+								· 58분 전</div>
+						</div>
+					</a>
+					<!-- Footer Link-->
+					<a class="dropdown-item dropdown-notifications-footer" href="#!">모든
+						메시지보기</a>
+				</div>
+			</li>
+			<!-- 사용자 Dropdown-->
+			<li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownUserImage" href="javascript:void(0);"
+				role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"><img class="img-fluid"
+					src="assets/img/illustrations/profiles/profile-1.png" /></a>
+				<div
+					class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownUserImage">
+					<h6 class="dropdown-header d-flex align-items-center">
+						<img class="dropdown-user-img"
+							src="assets/img/illustrations/profiles/profile-1.png" />
 						<div class="dropdown-user-details">
-							<div class="dropdown-user-details-name"
-                 th:text="${loginUser != null ? loginUser.userId : '비회원'}">이름</div>
-            <div class="dropdown-user-details-email"
-                 th:text="${loginUser != null ? loginUser.userDepartment : '로그인 필요'}">소속 회사</div>
+							<div class="dropdown-user-details-name" th:text="${loginUser != null ? loginUser.userId : '비회원'}">이름</div>
+							<div class="dropdown-user-details-email" th:text="${loginUser != null ? loginUser.userDepartment : '로그인 필요'}">소속 회사</div>
 						</div>
 					</h6>
-               <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="account-profile.html">
-                  <div class="dropdown-item-icon">
-                     <i data-feather="settings"></i>
-                  </div> 계정
-               </a> <a class="dropdown-item" th:href="@{/logout}">
-                  <div class="dropdown-item-icon">
-                     <i data-feather="log-out"></i>
-                  </div> 로그아웃
-               </a>
-            </div>
-         </li>
-      </ul>
-   </nav>
-   <div id="layoutSidenav">
-      <div id="layoutSidenav_nav">
-         <nav class="sidenav shadow-right sidenav-light">
-            <div class="sidenav-menu">
-               <div class="nav accordion" id="accordionSidenav">
-                  <!-- 모바일화면 상의 방식-->
-                  <div class="sidenav-menu-heading d-sm-none">계정</div>
-                  <!-- 알림-->
-                  <a class="nav-link d-sm-none" href="#!">
-                     <div class="nav-link-icon">
-                        <i data-feather="bell"></i>
-                     </div> 알림 <span class="badge bg-warning-soft text-warning ms-auto">알림이있습니다.</span>
-                  </a>
-                  <!-- 메시지-->
-                  <a class="nav-link d-sm-none" href="#">
-                     <div class="nav-link-icon">
-                        <i data-feather="mail"></i>
-                     </div> 메세지 <span class="badge bg-success-soft text-success ms-auto">2개의
-                        새로운 메시지</span>
-                  </a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="account-profile.html">
+						<div class="dropdown-item-icon">
+							<i data-feather="settings"></i>
+						</div> 계정
+					</a> <a class="dropdown-item" th:href="@{/logout}">
+						<div class="dropdown-item-icon">
+							<i data-feather="log-out"></i>
+						</div> 로그아웃
+					</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sidenav shadow-right sidenav-light">
+				<div class="sidenav-menu">
+					<div class="nav accordion" id="accordionSidenav">
+						<!-- 모바일화면 상의 방식-->
+						<div class="sidenav-menu-heading d-sm-none">계정</div>
+						<!-- 알림-->
+						<a class="nav-link d-sm-none" href="#!">
+							<div class="nav-link-icon">
+								<i data-feather="bell"></i>
+							</div> 알림 <span class="badge bg-warning-soft text-warning ms-auto">알림이있습니다.</span>
+						</a>
+						<!-- 메시지-->
+						<a class="nav-link d-sm-none" href="#">
+							<div class="nav-link-icon">
+								<i data-feather="mail"></i>
+							</div> 메세지 <span class="badge bg-success-soft text-success ms-auto">2개의
+								새로운 메시지</span>
+						</a>
 
-                  <!-- 모바일 메뉴보이기 -->
-                  <div class="sidenav-menu-heading">메뉴</div>
-                  <!-- Sidenav Accordion (Dashboard)-->
-                  <a class="nav-link collapsed" href="dashboard.html"
-                     data-bs-toggle="collapse" data-bs-target="#collapseDashboards"
-                     aria-expanded="false" aria-controls="collapseDashboards">
-                     <div class="nav-link-icon">
-                        <i data-feather="activity"></i>
-                     </div> 대시보드
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <div class="collapse" id="collapseDashboards"
-                     data-bs-parent="#accordionSidenav">
-                     <nav class="sidenav-menu-nested nav accordion"
-                        id="accordionSidenavPages">
-                        <a class="nav-link" href="dashboard"> 대시보드 <span
-                           class="badge bg-primary-soft text-primary ms-auto">업데이트</span>
-                        </a> <a class="nav-link" href="index.html">지도</a> <a
-                           class="nav-link" href="index.html">달력</a>
-                     </nav>
-                  </div>
-                  <!-- 보고서 -->
-                  <div class="sidenav-menu-heading">보고서 관리</div>
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                     data-bs-target="#collapsePages" aria-expanded="false"
-                     aria-controls="collapsePages">
-                     <div class="nav-link-icon">
-                        <i data-feather="grid"></i>
-                     </div> 보고서 보기
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <div class="collapse" id="collapsePages"
-                     data-bs-parent="#accordionSidenav">
-                     <nav class="sidenav-menu-nested nav accordion"
-                        id="accordionSidenavAppsMenu">
-                        <!-- Nested Sidenav Accordion (Apps -> Knowledge Base)-->
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                           data-bs-target="#appsCollapseKnowledgeBase"
-                           aria-expanded="false" aria-controls="appsCollapseKnowledgeBase">
-                           달력
-                           <div class="sidenav-collapse-arrow">
-                              <i class="fas fa-angle-down"></i>
-                           </div>
-                        </a>
-                     </nav>
-                  </div>
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                     data-bs-target="#collapseApps" aria-expanded="false"
-                     aria-controls="collapseApps">
-                     <div class="nav-link-icon">
-                        <i data-feather="globe"></i>
-                     </div> 보고서 생성
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <!-- 마이페이지-->
-                  <div class="sidenav-menu-heading">마이페이지</div>
-                  <!-- 프로필관리 -->
-                  <a class="nav-link collapsed" href="account-profile.html" data-bs-toggle="collapse"
-                     data-bs-target="#collapseLayouts" aria-expanded="false"
-                     aria-controls="collapseLayouts">
-                     <div class="nav-link-icon">
-                        <i data-feather="layout"></i>
-                     </div> 프로필관리
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <div class="collapse" id="collapseLayouts"
-                     data-bs-parent="#accordionSidenav">
-                     <nav class="sidenav-menu-nested nav accordion"
-                        id="accordionSidenavLayout">
-                        <a class="nav-link collapsed" href="account-profile.html"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#collapseLayoutSidenavVariations"
-                           aria-expanded="false"
-                           aria-controls="collapseLayoutSidenavVariations"> 프로필
-                           <div class="sidenav-collapse-arrow">
-                              <i class="fas fa-angle-down"></i>
-                           </div>
-                        </a> <a class="nav-link collapsed" href="account-security.html"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#collapseLayoutSidenavVariations"
-                           aria-expanded="false"
-                           aria-controls="collapseLayoutSidenavVariations"> 보안
-                           <div class="sidenav-collapse-arrow">
-                              <i class="fas fa-angle-down"></i>
-                           </div>
-                        </a> <a class="nav-link collapsed" href="account-notifications.html"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#collapseLayoutSidenavVariations"
-                           aria-expanded="false"
-                           aria-controls="collapseLayoutSidenavVariations"> 설정
-                           <div class="sidenav-collapse-arrow">
-                              <i class="fas fa-angle-down"></i>
-                           </div>
-                        </a> <a class="nav-link collapsed" href="#"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#collapseLayoutSidenavVariations"
-                           aria-expanded="false"
-                           aria-controls="collapseLayoutSidenavVariations"> 권한부여
-                           <div class="sidenav-collapse-arrow">
-                              <i class="fas fa-angle-down"></i>
-                           </div>
-                        </a>
-                     </nav>
-                  </div>
-                  <!-- 기상 정보 등록 -->
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                     data-bs-target="#collapseComponents" aria-expanded="false"
-                     aria-controls="collapseComponents">
-                     <div class="nav-link-icon">
-                        <i data-feather="package"></i>
-                     </div> 기상 정보 등록
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <!-- 데이터 조회 -->
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                     data-bs-target="#collapseComponents" aria-expanded="false"
-                     aria-controls="collapseComponents">
-                     <div class="nav-link-icon">
-                        <i data-feather="package"></i>
-                     </div> 데이터 조회
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <!-- 장비관리 -->
-                  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                     data-bs-target="#collapseUtilities" aria-expanded="false"
-                     aria-controls="collapseUtilities">
-                     <div class="nav-link-icon">
-                        <i data-feather="tool"></i>
-                     </div> 장비관리
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <!-- 염전관리 -->
-                  <a class="nav-link collapsed" href="javascript:void(0);"
-                     data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
-                     aria-expanded="false" aria-controls="collapseUtilities">
-                     <div class="nav-link-icon">
-                        <i data-feather="tool"></i>
-                     </div> 염전관리
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <!-- 센서등록 -->
-                  <a class="nav-link collapsed" href="javascript:void(0);"
-                     data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
-                     aria-expanded="false" aria-controls="collapseUtilities">
-                     <div class="nav-link-icon">
-                        <i data-feather="tool"></i>
-                     </div> 센서등록
-                     <div class="sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-               </div>   
-            </div>
-         </nav>
-      </div>
-   </div>
-   <!-- Hero Section -->
-   <section class="hero-section">
-      <h1>효율적인 염전 관리, 자동화 시스템으로 미래를 준비하세요!</h1>
-      <p>기상 데이터를 분석하고 생산량을 예측하여 염전 운영의 효율성을 높이는 스마트 솔루션</p>
-      <button class="cta-button">시스템 소개 보기</button>
-   </section>
-   <!-- Key Features -->
-   <section class="container my-5">
-      <h2 class="text-center mb-4">우리 시스템의 핵심 기능</h2>
-      <div class="row">
-         <div class="col-md-4">
-            <div class="feature-card">
-               <i class="feature-icon fas fa-cloud-sun"></i>
-               <h4>기상 데이터 분석</h4>
-               <p>실시간 기상 데이터를 분석하여 최적의 생산 시기를 예측합니다.</p>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="feature-card">
-               <i class="feature-icon fas fa-chart-line"></i>
-               <h4>생산량 예측</h4>
-               <p>정확한 분석으로 생산량을 예측하여 자원을 미리 준비할 수 있습니다.</p>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="feature-card">
-               <i class="feature-icon fas fa-cogs"></i>
-               <h4>자동화 시스템</h4>
-               <p>자동화된 시스템으로 염전 운영을 실시간으로 제어하고 관리할 수 있습니다.</p>
-            </div>
-         </div>
-      </div>
-   </section>
-   <div>
-      <!-- Demo CTA -->
-      <section class="container text-center my-5">
-         <h2>시스템 관리 요청</h2>
-         <p>실시간 데이터 분석과 예측 시스템을 경험해보세요. 체험하기를 누르면 더 많은 내용을 제공 받을 수 있습니다.</p>
-         <button class="cta-button">체험 요청하기</button>
-      </section>
-   </div>
-   <footer class="footer-admin mt-auto footer-light">
-        <div class="container-xl px-4">
-            <div class="row">
-                <div class="col-md-6 small">솔튼루션(saltlution) &copy; 옹기종기</div>
-            </div>
-        </div>
-    </footer>
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"></script>
-   <script src="js/scripts.js"></script>
-   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-      crossorigin="anonymous"></script>
-   <script src="assets/demo/chart-area-demo.js"></script>
-   <script src="assets/demo/chart-bar-demo.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-      crossorigin="anonymous"></script>
-   <script src="js/datatables/datatables-simple-demo.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"
-      crossorigin="anonymous"></script>
-   <script src="js/litepicker.js"></script>
+						<!-- 모바일 메뉴보이기 -->
+						<div class="sidenav-menu-heading">메뉴</div>
+						<!-- Sidenav Accordion (Dashboard)-->
+						<a class="nav-link collapsed" href="dashboard.html"
+							data-bs-toggle="collapse" data-bs-target="#collapseDashboards"
+							aria-expanded="false" aria-controls="collapseDashboards">
+							<div class="nav-link-icon">
+								<i data-feather="activity"></i>
+							</div> 대시보드
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseDashboards"
+							data-bs-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav accordion"
+								id="accordionSidenavPages">
+								<a class="nav-link" href="dashboard"> 대시보드 <span
+									class="badge bg-primary-soft text-primary ms-auto">업데이트</span>
+								</a> <a class="nav-link" href="index.html">지도</a> <a
+									class="nav-link" href="index.html">달력</a>
+							</nav>
+						</div>
+						<!-- 보고서 -->
+						<div class="sidenav-menu-heading">보고서 관리</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapsePages" aria-expanded="false"
+							aria-controls="collapsePages">
+							<div class="nav-link-icon">
+								<i data-feather="grid"></i>
+							</div> 보고서 보기
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapsePages"
+							data-bs-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav accordion"
+								id="accordionSidenavAppsMenu">
+								<!-- Nested Sidenav Accordion (Apps -> Knowledge Base)-->
+								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+									data-bs-target="#appsCollapseKnowledgeBase"
+									aria-expanded="false" aria-controls="appsCollapseKnowledgeBase">
+									달력
+									<div class="sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a>
+							</nav>
+						</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseApps" aria-expanded="false"
+							aria-controls="collapseApps">
+							<div class="nav-link-icon">
+								<i data-feather="globe"></i>
+							</div> 보고서 생성
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!-- 마이페이지-->
+						<div class="sidenav-menu-heading">마이페이지</div>
+						<!-- 프로필관리 -->
+						<a class="nav-link collapsed" href="account-profile.html"
+							data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+							aria-expanded="false" aria-controls="collapseLayouts">
+							<div class="nav-link-icon">
+								<i data-feather="layout"></i>
+							</div> 프로필관리
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseLayouts"
+							data-bs-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav accordion"
+								id="accordionSidenavLayout">
+								<a class="nav-link collapsed" href="account-profile.html"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseLayoutSidenavVariations"
+									aria-expanded="false"
+									aria-controls="collapseLayoutSidenavVariations"> 프로필
+									<div class="sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a> <a class="nav-link collapsed" href="account-security.html"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseLayoutSidenavVariations"
+									aria-expanded="false"
+									aria-controls="collapseLayoutSidenavVariations"> 보안
+									<div class="sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a> <a class="nav-link collapsed" href="account-notifications.html"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseLayoutSidenavVariations"
+									aria-expanded="false"
+									aria-controls="collapseLayoutSidenavVariations"> 설정
+									<div class="sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a> <a class="nav-link collapsed" href="#"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseLayoutSidenavVariations"
+									aria-expanded="false"
+									aria-controls="collapseLayoutSidenavVariations"> 권한부여
+									<div class="sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a>
+							</nav>
+						</div>
+						<!-- 기상 정보 등록 -->
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseComponents" aria-expanded="false"
+							aria-controls="collapseComponents">
+							<div class="nav-link-icon">
+								<i data-feather="package"></i>
+							</div> 기상 정보 등록
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!-- 데이터 조회 -->
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseComponents" aria-expanded="false"
+							aria-controls="collapseComponents">
+							<div class="nav-link-icon">
+								<i data-feather="package"></i>
+							</div> 데이터 조회
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!-- 장비관리 -->
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseUtilities" aria-expanded="false"
+							aria-controls="collapseUtilities">
+							<div class="nav-link-icon">
+								<i data-feather="tool"></i>
+							</div> 장비관리
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!-- 염전관리 -->
+						<a class="nav-link collapsed" href="javascript:void(0);"
+							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
+							aria-expanded="false" aria-controls="collapseUtilities">
+							<div class="nav-link-icon">
+								<i data-feather="tool"></i>
+							</div> 염전관리
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!-- 센서등록 -->
+						<a class="nav-link collapsed" href="javascript:void(0);"
+							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
+							aria-expanded="false" aria-controls="collapseUtilities">
+							<div class="nav-link-icon">
+								<i data-feather="tool"></i>
+							</div> 센서등록
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<h1>효율적인 염전 관리, 자동화 시스템으로 미래를 준비하세요!</h1>
+		<p>기상 데이터를 분석하고 생산량을 예측하여 염전 운영의 효율성을 높이는 스마트 솔루션</p>
+		<button class="cta-button">시스템 소개 보기</button>
+	</section>
+	<!-- Key Features -->
+	<section class="container my-5">
+		<h2 class="text-center mb-4">우리 시스템의 핵심 기능</h2>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="feature-card">
+					<i class="feature-icon fas fa-cloud-sun"></i>
+					<h4>기상 데이터 분석</h4>
+					<p>실시간 기상 데이터를 분석하여 최적의 생산 시기를 예측합니다.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="feature-card">
+					<i class="feature-icon fas fa-chart-line"></i>
+					<h4>생산량 예측</h4>
+					<p>정확한 분석으로 생산량을 예측하여 자원을 미리 준비할 수 있습니다.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="feature-card">
+					<i class="feature-icon fas fa-cogs"></i>
+					<h4>자동화 시스템</h4>
+					<p>자동화된 시스템으로 염전 운영을 실시간으로 제어하고 관리할 수 있습니다.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>
+		<!-- Demo CTA -->
+		<section class="container text-center my-5">
+			<h2>시스템 관리 요청</h2>
+			<p>실시간 데이터 분석과 예측 시스템을 경험해보세요. 체험하기를 누르면 더 많은 내용을 제공 받을 수 있습니다.</p>
+			<button class="cta-button">체험 요청하기</button>
+		</section>
+	</div>
+	<footer class="footer-admin mt-auto footer-light">
+		<div class="container-xl px-4">
+			<div class="row">
+				<div class="col-md-6 small">솔튼루션(saltlution) &copy; 옹기종기</div>
+			</div>
+		</div>
+	</footer>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="js/scripts.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+		crossorigin="anonymous"></script>
+	<script src="assets/demo/chart-area-demo.js"></script>
+	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+		crossorigin="anonymous"></script>
+	<script src="js/datatables/datatables-simple-demo.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"
+		crossorigin="anonymous"></script>
+	<script src="js/litepicker.js"></script>
 
 </body>
 </html>

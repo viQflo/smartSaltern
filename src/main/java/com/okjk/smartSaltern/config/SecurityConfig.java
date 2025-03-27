@@ -1,22 +1,56 @@
 package com.okjk.smartSaltern.config;
 
+import com.okjk.smartSaltern.security.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
 
+    private final CustomUserDetailsService customUserDetailsService;
+
+    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
+        this.customUserDetailsService = customUserDetailsService;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(customUserDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            .authenticationProvider(authenticationProvider()) // ✅ 반드시 필요
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/main", "/login", "/join", "/css/**", "/js/**", "/images/**").permitAll() // 로그인 없이 접근 가능
-                .anyRequest().authenticated() // 나머지는 인증 필요
+                .requestMatchers(
+                    "/", "/main", "/login", "/join", "/register",
+                    "/css/**", "/js/**", "/images/**", "/assets/**"
+                ).permitAll()
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
+                .loginProcessingUrl("/login") // ✅ Spring Security가 로그인 처리하는 URL
                 .defaultSuccessUrl("/dashboard", true)
                 .permitAll()
             )
@@ -25,7 +59,7 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()
             )
-            .csrf(csrf -> csrf.disable()); // CSRF 비활성화 (테스트용 또는 REST API용)
+            .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
