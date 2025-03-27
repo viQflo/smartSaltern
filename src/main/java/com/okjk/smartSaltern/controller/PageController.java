@@ -25,8 +25,12 @@ public class PageController {
     }
     
     @RequestMapping("/main")
-    public String main() {
-        return "main"; // templates/index.html 파일을 반환
+    public String main(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("loginUser");
+        if (user != null) {
+            model.addAttribute("loginUser", user);
+        }
+        return "main";
     }
     
     @RequestMapping("/header")

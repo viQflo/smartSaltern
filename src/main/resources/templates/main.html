@@ -179,17 +179,19 @@
                <h6 class="dropdown-header d-flex align-items-center">
                   <img class="dropdown-user-img"
                      src="assets/img/illustrations/profiles/profile-1.png" />
-                  <div class="dropdown-user-details">
-                     <div class="dropdown-user-details-name">이름</div>
-                     <div class="dropdown-user-details-email">이메일(vluna@aol.com)</div>
-                  </div>
-               </h6>
+						<div class="dropdown-user-details">
+							<div class="dropdown-user-details-name"
+                 th:text="${loginUser != null ? loginUser.userId : '비회원'}">이름</div>
+            <div class="dropdown-user-details-email"
+                 th:text="${loginUser != null ? loginUser.userDepartment : '로그인 필요'}">소속 회사</div>
+						</div>
+					</h6>
                <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="account-profile.html">
                   <div class="dropdown-item-icon">
                      <i data-feather="settings"></i>
                   </div> 계정
-               </a> <a class="dropdown-item" href="#!">
+               </a> <a class="dropdown-item" th:href="@{/logout}">
                   <div class="dropdown-item-icon">
                      <i data-feather="log-out"></i>
                   </div> 로그아웃

@@ -12,9 +12,20 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // 모든 요청 허용
+                .requestMatchers("/", "/main", "/login", "/join", "/css/**", "/js/**", "/images/**").permitAll() // 로그인 없이 접근 가능
+                .anyRequest().authenticated() // 나머지는 인증 필요
             )
-            .csrf(csrf -> csrf.disable()); // CSRF 끄기
+            .formLogin(form -> form
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard", true)
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            )
+            .csrf(csrf -> csrf.disable()); // CSRF 비활성화 (테스트용 또는 REST API용)
 
         return http.build();
     }
