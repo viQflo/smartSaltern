@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 @Service
 public class UserService {
@@ -16,12 +18,20 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    
     @Transactional
     public void register(User user) {
         try {
         	user.setUserRole("USER");
             user.setCreateDate(LocalDateTime.now());
             user.setUpdateDate(LocalDateTime.now());
+            
+         // 비밀번호 암호화
+            String encodedPw = encoder.encode(user.getUserPw());
+            user.setUserPw(encodedPw);
+            
         	userRepository.saveAndFlush(user); // flush + commit
             System.out.println(">>> SAVE 성공");
             
@@ -31,5 +41,14 @@ public class UserService {
             System.out.println(">>> 예외 발생: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+    
+    public User findByUserId(String userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+    
+    // 로그인 비밀번호 비교용 메소드
+    public boolean matchPassword(String rawPassword, String encryptedPassword) {
+        return encoder.matches(rawPassword, encryptedPassword);
     }
 }

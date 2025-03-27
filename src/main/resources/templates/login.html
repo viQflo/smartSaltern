@@ -24,16 +24,16 @@
                                     <div class="card-header justify-content-center"><h3 class="fw-light my-4">로그인</h3></div>
                                     <div class="card-body">
                                         <!-- Login form-->
-                                        <form>
+                                        <form action="/login" method="post">
                                             <!--이메일-->
                                             <div class="mb-3">
                                                 <label class="small mb-1" for="inputEmail">이메일</label>
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="smhrd@smhrd.com"/>
+                                                <input class="form-control" id="inputEmail" type="email" name="userId" placeholder="smhrd@smhrd.com"/>
                                             </div>
                                             <!-- 비밀번호호-->
                                             <div class="mb-3">
                                                 <label class="small mb-1" for="inputPassword">비밀번호</label>
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호를 입력해주세요" />
+                                                <input class="form-control" id="inputPassword" type="password" name="userPw" placeholder="비밀번호를 입력해주세요" />
                                             </div>
                                             <!-- 로그인 유지하기기-->
                                             <div class="mb-3">
@@ -45,7 +45,7 @@
                                             <!-- Form Group (login box)-->
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="auth-password-basic.html">비밀번호를 잊어버리셨나요?</a>
-                                                <a class="btn btn-primary" href="dashboard-1.html">로그인</a>
+                                                <button class="btn btn-primary" type="submit">로그인</button>
                                             </div>
                                         </form>
                                     </div>
