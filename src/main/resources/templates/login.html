@@ -99,12 +99,18 @@
 	<script src="js/scripts.js"></script>
 	<script>
 		window.onload = function() {
-			// 현재 URL의 쿼리 파라미터에서 error를 확인
-			const urlParams = new URLSearchParams(window.location.search);
-			if (urlParams.has('error')) {
-				// 'error' 파라미터가 있으면 오류 메시지 표시
-				document.getElementById('error-message').style.display = 'block';
-			}
+		    // 현재 URL의 쿼리 파라미터에서 error를 확인
+		    const urlParams = new URLSearchParams(window.location.search);
+		    const errorMessage = document.getElementById('error-message');
+		    
+		    // 'error' 파라미터가 있으면 오류 메시지 표시
+		    if (urlParams.has('error')) {
+		        errorMessage.classList.remove('d-none'); // 오류 메시지 보이게 하기
+		        errorMessage.classList.add('d-block');   // d-block 클래스 추가
+		    } else {
+		        errorMessage.classList.remove('d-block'); // 오류 메시지 숨기기
+		        errorMessage.classList.add('d-none');     // d-none 클래스 추가
+		    }
 		};
 	</script>
 </body>
