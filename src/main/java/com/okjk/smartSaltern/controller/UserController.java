@@ -16,9 +16,6 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(@ModelAttribute User user) {
-    	 System.out.println("userId: " + user.getUserId()); // 👈 null 나올 수 있음
-    	    System.out.println("userPw: " + user.getUserPw());
-    	    System.out.println("userDepartment: " + user.getUserDepartment());
         userService.register(user);
         return "redirect:/login";
     }
