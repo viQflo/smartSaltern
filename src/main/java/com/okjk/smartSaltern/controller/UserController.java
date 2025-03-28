@@ -5,25 +5,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.okjk.smartSaltern.entity.User;
 import com.okjk.smartSaltern.service.UserService;
+
+import org.springframework.ui.Model;
 
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
-
+    
+    // 회원가입
     @PostMapping("/register")
     public String register(@ModelAttribute User user) {
         userService.register(user);
         return "redirect:/login";
+    }
+    
+    // 로그인 페이지
+    @GetMapping("/login")
+    public String loginPage(@RequestParam(value = "error", required = false) String error, Model model) {
+        if (error != null) {
+            model.addAttribute("error", "로그인 실패! 아이디와 비밀번호를 다시 확인해주세요.");
+        }
+        return "login"; // login.html 또는 login.jsp로 연결될 페이지 이름
     }
     
     
@@ -31,17 +44,30 @@ public class UserController {
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteUser(Authentication authentication) {
         String userId = authentication.name(); // 현재 로그인한 사용자 ID 가져오기
-        userService.deleteUser(userId);
-        return ResponseEntity.ok("User deleted successfully: " + userId);
+        boolean isDeleted = userService.deleteUser(userId);
+        if (isDeleted) {
+            return ResponseEntity.ok("User deleted successfully: " + userId);
+        } else {
+            return ResponseEntity.status(400).body("User deletion failed: " + userId);
+        }
     }
-    
     
     // Update
     @PutMapping("/update")
     public ResponseEntity<User> updateUser(Authentication authentication, @RequestBody User updatedUser) {
-        String userId = authentication.name();
+        String userId = authentication.name(); // 로그인된 사용자의 ID
         User user = userService.updateUser(userId, updatedUser);
-        return ResponseEntity.ok(user);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(400).body(null); // 실패 시
+        }
+    }
+    
+    // 비밀번호 찾기
+    @GetMapping("/password_find")
+    public String passwordFindPage() {
+        return "password_find"; // password_find.html을 반환
     }
     
     

@@ -24,15 +24,15 @@ public class UserService {
     @Transactional
     public void register(User user) {
         try {
-        	user.setUserRole("USER");
+            user.setUserRole("USER");
             user.setCreateDate(LocalDateTime.now());
             user.setUpdateDate(LocalDateTime.now());
             
-         // 비밀번호 암호화
+            // 비밀번호 암호화
             String encodedPw = encoder.encode(user.getUserPw());
             user.setUserPw(encodedPw);
             
-        	userRepository.saveAndFlush(user); // flush + commit
+            userRepository.saveAndFlush(user); // flush + commit
             System.out.println(">>> SAVE 성공");
             
             System.out.println("==== 등록 직후 전체 유저 조회 ====");
@@ -53,12 +53,13 @@ public class UserService {
     }
     
     // Delete
-    public void deleteUser(String userId) {
+    public boolean deleteUser(String userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
         } else {
             throw new IllegalArgumentException("User not found: " + userId);
         }
+		return false;
     }
     
     
@@ -68,7 +69,7 @@ public class UserService {
             user.setUserPw(updatedUser.getUserPw());
             user.setUserGender(updatedUser.getUserGender());
             user.setUserDepartment(updatedUser.getUserDepartment());
-            user.setUpdateDate(LocalDateTime.now()); // 업데이트 시간 갱신
+            user.setUpdateDate(LocalDateTime.now());  // 업데이트 시간 갱신
             return userRepository.save(user);
         }).orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
     }

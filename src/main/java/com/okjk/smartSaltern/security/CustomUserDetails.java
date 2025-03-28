@@ -2,6 +2,7 @@ package com.okjk.smartSaltern.security;
 
 import com.okjk.smartSaltern.entity.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -53,4 +54,7 @@ public class CustomUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+    
+   
+    
 }

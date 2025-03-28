@@ -77,7 +77,22 @@ public class PageController {
         return "join_multi_3"; 
     }
     
-
+    @RequestMapping("/profile")
+    public String profile() {
+        return "profile"; 
+    }
+    
+    @RequestMapping("/security")
+    public String security() {
+        return "security"; 
+    }
+    
+    @RequestMapping("/password_find")
+    public String password_find() {
+        return "password_find"; 
+    }
+    
+    
 
     // 로그아웃은 Security에서 처리하므로 따로 컨트롤러 필요 없음
 }
