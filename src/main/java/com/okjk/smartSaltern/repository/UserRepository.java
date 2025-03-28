@@ -10,7 +10,9 @@ import com.okjk.smartSaltern.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 	
-	Optional<User> findByUserId(String userId);
+	public Optional<User> findById(String userId);
+
+
 	
 }
 

@@ -25,12 +25,6 @@ public class PageController {
         return "main";
     }
 
- 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login"; // templates/login.html
-    }
-
     @GetMapping("/join")
     public String join() {
         return "join"; // templates/join.html

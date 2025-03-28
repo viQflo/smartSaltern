@@ -29,7 +29,7 @@ public class SecurityConfig {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(customUserDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setPasswordEncoder(passwordEncoder());// 비밀번호 인코딩
         return authProvider;
     }
 
@@ -53,6 +53,8 @@ public class SecurityConfig {
 	        .formLogin(form -> form
 	            .loginPage("/login")
 	            .loginProcessingUrl("/login") // 로그인 처리 URL
+	            .usernameParameter("userId")  // userId로 로그인
+	            .passwordParameter("userPw")  // userPw
 	            .defaultSuccessUrl("/dashboard", true) // 로그인 성공 시 이동할 페이지
 	            .failureUrl("/login?error=true") // 로그인 실패 시 이동할 페이지
 	            .permitAll()
