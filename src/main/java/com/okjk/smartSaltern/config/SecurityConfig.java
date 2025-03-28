@@ -51,7 +51,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/login") // ✅ Spring Security가 로그인 처리하는 URL
-                .defaultSuccessUrl("/dashboard", true)
+                .defaultSuccessUrl("/dashboard", true)// 로그인 성공 시 이동할 페이지
                 .permitAll()
             )
             .logout(logout -> logout

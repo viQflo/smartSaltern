@@ -51,4 +51,27 @@ public class UserService {
     public boolean matchPassword(String rawPassword, String encryptedPassword) {
         return encoder.matches(rawPassword, encryptedPassword);
     }
+    
+    // Delete
+    public void deleteUser(String userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+        } else {
+            throw new IllegalArgumentException("User not found: " + userId);
+        }
+    }
+    
+    
+    // Update
+    public User updateUser(String userId, User updatedUser) {
+        return userRepository.findById(userId).map(user -> {
+            user.setUserPw(updatedUser.getUserPw());
+            user.setUserGender(updatedUser.getUserGender());
+            user.setUserDepartment(updatedUser.getUserDepartment());
+            user.setUpdateDate(LocalDateTime.now()); // 업데이트 시간 갱신
+            return userRepository.save(user);
+        }).orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
+    }
+    
+    
 }
