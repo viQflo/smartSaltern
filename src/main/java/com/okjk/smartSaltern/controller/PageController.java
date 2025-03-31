@@ -25,12 +25,14 @@ public class PageController {
             if (user != null) {
                 model.addAttribute("loginUser", user);
             } else {
-                // user가 null인 경우, 예외 처리 혹은 로그인 페이지로 리다이렉트
-                return "redirect:/login";
+                // user가 null인 경우 로깅 추가
+                System.out.println("User is null");
+                return "redirect:/main"; // 로그인 페이지로 리다이렉트
             }
         } else {
-            // userDetails가 null인 경우, 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+            // userDetails가 null인 경우 로깅 추가
+            System.out.println("UserDetails is null");
+            return "redirect:/main"; // 로그인 페이지로 리다이렉트
         }
         return "main";
     }
@@ -86,6 +88,32 @@ public class PageController {
         return "password_find"; 
     }
     
+    @RequestMapping("/notifications")
+    public String notifications() {
+        return "notifications"; 
+    }
+    
+    @RequestMapping("/report_list")
+    public String report_list() {
+        return "report_list"; 
+    }
+    
+    @RequestMapping("/report_create")
+    public String report_create() {
+        return "report_create"; 
+    } 
+    
+    @RequestMapping("/report_edit")
+    public String report_edit() {
+        return "report_edit"; 
+    }
+    
+    @RequestMapping("/request_demo")
+    public String request_demo() {
+        return "request_demo"; 
+    }
+    
+
     
 
     // 로그아웃은 Security에서 처리하므로 따로 컨트롤러 필요 없음

@@ -34,7 +34,8 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) 
+			throws Exception {
 		return config.getAuthenticationManager();
 	}
 
@@ -56,6 +57,11 @@ public class SecurityConfig {
 					.passwordParameter("userPw") // userPw
 					.defaultSuccessUrl("/dashboard", true) // 로그인 성공 시 이동할 페이지
 					.failureUrl("/login?error=true") // 로그인 실패 시 이동할 페이지
+					.failureHandler((request, response, exception) -> {
+				        // 로그인 실패 시 처리할 로직
+				        request.setAttribute("error", "아이디나 비밀번호가 잘못되었습니다.");
+				        response.sendRedirect("/login");
+				    })
 					.permitAll())
 			.logout(logout -> logout
 					.logoutUrl("/logout")

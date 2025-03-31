@@ -22,13 +22,13 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    	// User 객체의 userRole이 null이 아닐 때만 반환
-        if (user.getUserRole() != null) {
+        if (user != null && user.getUserRole() != null) {
             return Collections.singleton(() -> "ROLE_" + user.getUserRole());
         } else {
-            throw new IllegalArgumentException("User role is null");
+            throw new IllegalArgumentException("User or UserRole is null");
         }
     }
+    
     @Override
     public String getPassword() {
         return user.getUserPw();
