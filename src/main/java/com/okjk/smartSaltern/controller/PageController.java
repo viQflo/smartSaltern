@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping("/")
+	@GetMapping("/")
     public String home() {
         return "index"; // templates/index.html
     }
 
-    @RequestMapping("/main")
+	@GetMapping("/main")
     public String main(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
         if (userDetails != null) {
             User user = userDetails.getUser();
@@ -27,12 +27,12 @@ public class PageController {
             } else {
                 // user가 null인 경우 로깅 추가
                 System.out.println("User is null");
-                return "redirect:/main"; // 로그인 페이지로 리다이렉트
+                return "redirect:/login"; // 로그인 페이지로 리다이렉트
             }
         } else {
             // userDetails가 null인 경우 로깅 추가
             System.out.println("UserDetails is null");
-            return "redirect:/main"; // 로그인 페이지로 리다이렉트
+            return "redirect:/login"; // 로그인 페이지로 리다이렉트
         }
         return "main";
     }
@@ -41,77 +41,89 @@ public class PageController {
     public String join() {
         return "join"; // templates/join.html
     }
+    
 
     
-    @RequestMapping("/alert")
+    @GetMapping("/alert")
     public String alert() {
         return "alert"; 
     }
     
-    @RequestMapping("/message")
+    @GetMapping("/message")
     public String message() {
         return "message"; 
     }
     
-    @RequestMapping("/join_multi")
+    @GetMapping("/join_multi")
     public String join_multi() {
         return "join_multi"; 
     }
     
-    @RequestMapping("/join_multi_1")
+    @GetMapping("/join_multi_1")
     public String join_multi_1() {
         return "join_multi_1"; 
     }
     
-    @RequestMapping("/join_multi_2")
+    @GetMapping("/join_multi_2")
     public String join_multi_2() {
         return "join_multi_2"; 
     }
     
-    @RequestMapping("/join_multi_3")
+    @GetMapping("/join_multi_3")
     public String join_multi_3() {
         return "join_multi_3"; 
     }
     
-    @RequestMapping("/profile")
+    @GetMapping("/profile")
     public String profile() {
         return "profile"; 
     }
     
-    @RequestMapping("/security")
+    @GetMapping("/security")
     public String security() {
         return "security"; 
     }
     
-    @RequestMapping("/password_find")
+    @GetMapping("/password_find")
     public String password_find() {
         return "password_find"; 
     }
     
-    @RequestMapping("/notifications")
+    @GetMapping("/notifications")
     public String notifications() {
         return "notifications"; 
     }
     
-    @RequestMapping("/report_list")
+    @GetMapping("/report_list")
     public String report_list() {
         return "report_list"; 
     }
     
-    @RequestMapping("/report_create")
+    @GetMapping("/report_create")
     public String report_create() {
         return "report_create"; 
     } 
     
-    @RequestMapping("/report_edit")
+    @GetMapping("/report_edit")
     public String report_edit() {
         return "report_edit"; 
     }
     
-    @RequestMapping("/request_demo")
+    @GetMapping("/request_demo")
     public String request_demo() {
         return "request_demo"; 
     }
+    
+    @GetMapping("/header")
+    public String header() {
+        return "header"; 
+    }
+    
+    @GetMapping("/footer")
+    public String footer() {
+        return "footer"; 
+    }
+    
     
 
     

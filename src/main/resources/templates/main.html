@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -145,11 +144,9 @@
 		<img src="assets/img/backgrounds/SaltLution.png" alt="Saltlution Logo"
 			class="logo">
 	</div>
-
 	<!-- 헤더 포함 -->
-	<div th:replace="~{fragments/header}"></div>
+	<div th:replace="fragments/header"></div>
    
-	
 
 	<!-- Hero Section -->
 	<div th:unless="${loginUser == null}">
@@ -195,7 +192,7 @@
 	</div>
 
 	<!-- 푸터 포함 -->
-	<div th:replace="~{fragments/footer}"></div>
+	<div th:replace="fragments/footer"></div>
 
 	<script>
 		window.onload = function() {

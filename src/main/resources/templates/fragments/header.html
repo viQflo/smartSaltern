@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,10 +25,6 @@
 </head>
 
 <body class="nav-fixed">
-	<div th:if="${loginUser == null}">
-		<p>로그인 해주세요!</p>
-	</div>
-
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
 		id="sidenavAccordion">
@@ -160,11 +155,11 @@
 						</div>
 					</h6>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="profile.html">
+					<a class="dropdown-item" href="profile">
 						<div class="dropdown-item-icon">
 							<i data-feather="settings"></i>
 						</div> 계정
-					</a> <a class="dropdown-item" href="main.html">
+					</a> <a class="dropdown-item" href="main">
 						<div class="dropdown-item-icon">
 							<i data-feather="log-out"></i>
 						</div> 로그아웃
@@ -219,6 +214,7 @@
 						</div>
 						<!-- 보고서 -->
 						<div class="sidenav-menu-heading">보고서 관리</div>
+
 						<a class="nav-link collapsed" data-bs-toggle="collapse"
 							data-bs-target="#collapsePages" aria-expanded="false"
 							aria-controls="collapsePages">
@@ -229,16 +225,19 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
+
 						<div class="collapse" id="collapsePages"
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavAppsMenu">
-								<a class="nav-link collapsed" href="report_list.html"
-									style="font-size: 12px; font-weight: bold;""> 보고서 리스트 </a>
+								<a class="nav-link collapsed" href="@{/report_list}"
+									style="font-size: 12px; font-weight: bold;"> 보고서 리스트 </a>
 							</nav>
 						</div>
+
 						<a class="nav-link collapsed" data-bs-toggle="collapse"
-							aria-expanded="false" aria-controls="collapseApps">
+							data-bs-target="#collapseReports" aria-expanded="false"
+							aria-controls="collapseApps">
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
 							</div> 보고서 생성
@@ -246,15 +245,17 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<div class="collapse" id="collapseApps"
-							data-bs-parent="#accordionSidenav">
-							<nav class="sidenav-menu-nested nav accordion">
-								<a class=" nav-link collapsed" href="report_create.html"
-									style="font-size: 12px; font-weight: bold;""> 보고서 작성 </a> <a
-									class=" nav-link collapsed" href="report_edit.html"
+						<div class="collapse" id="collapseReports"
+							dadata-bs-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav accordion"
+								id="accordionSidenavAppsMenu">
+								<a class="nav-link collapsed" href="report_create.html"
+									style="font-size: 12px; font-weight: bold;"> 보고서 작성 </a> <a
+									class="nav-link collapsed" href="report_edit.html"
 									style="font-size: 12px; font-weight: bold;"> 보고서 수정 </a>
 							</nav>
 						</div>
+
 
 						<!-- 마이페이지-->
 						<div class="sidenav-menu-heading">마이페이지</div>

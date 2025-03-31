@@ -66,6 +66,8 @@ public class SecurityConfig {
 			.logout(logout -> logout
 					.logoutUrl("/logout")
 					.logoutSuccessUrl("/login?logout")
+					.invalidateHttpSession(true)  // 세션 무효화
+			        .clearAuthentication(true)  // 인증 정보 삭제
 					.permitAll())
 			.csrf(csrf -> csrf.disable()); // 활성화
 

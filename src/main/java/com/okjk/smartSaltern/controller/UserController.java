@@ -76,12 +76,7 @@ public class UserController {
         }
     }
     
-    // 비밀번호 찾기
-    @GetMapping("/password_find")
-    public String passwordFindPage() {
-        return "password_find"; // password_find.html을 반환
-    }
-    
+ 
     
     
     
