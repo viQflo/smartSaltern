@@ -31,11 +31,11 @@
 		<!-- Sidenav Toggle Button-->
 		<button
 			class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0"
-			id="sidebarToggle">
+			id="sidebarToggle" >
 			<i data-feather="menu"></i>
 		</button>
 		<!-- 로고  -->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.html">Saltlution
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main">Saltlution
 			<img src="assets/img/backgrounds/SaltLution.png"
 			alt="Saltlution Logo" style="height: 40px; width: auto;">
 		</a>
@@ -179,7 +179,7 @@
 							</div> 알림 <span class="badge bg-warning-soft text-warning ms-auto">알림이있습니다.</span>
 						</a>
 						<!-- 메시지-->
-						<a class="nav-link d-sm-none" href="#">
+						<a class="nav-link d-sm-none" href="message">
 							<div class="nav-link-icon">
 								<i data-feather="mail"></i>
 							</div> 메세지 <span class="badge bg-success-soft text-success ms-auto">2개의
@@ -188,8 +188,8 @@
 
 						<!-- 모바일 메뉴보이기 -->
 						<div class="sidenav-menu-heading">메뉴</div>
-						<!-- Sidenav Accordion (Dashboard)-->
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<!-- Dashboard-->
+						<a class="nav-link active collapsed" data-bs-toggle="collapse"
 							data-bs-target="#collapseDashboards" aria-expanded="false"
 							aria-controls="collapseDashboards">
 							<div class="nav-link-icon">
@@ -200,12 +200,12 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavPages">
-								<a class="nav-link" href="dashboard-1.html"
+								<a class="nav-link" href="dashboard"
 									style="font-size: 12px; font-weight: bold;"> 대시보드 <span
 									class="badge bg-primary-soft text-primary ms-auto">업데이트</span>
-								</a> <a class="nav-link" href="index.html"
+								</a> <a class="nav-link" href="#"
 									style="font-size: 12px; font-weight: bold;">지도</a> <a
-									class="nav-link" href="index.html"
+									class="nav-link" href="#"
 									style="font-size: 12px; font-weight: bold;">달력</a>
 							</nav>
 						</div>
@@ -227,7 +227,7 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavAppsMenu">
-								<a class="nav-link collapsed" href="@{/report_list}"
+								<a class="nav-link collapsed" href="report_list"
 									style="font-size: 12px; font-weight: bold;"> 보고서 리스트 </a>
 							</nav>
 						</div>
@@ -246,9 +246,9 @@
 							dadata-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavAppsMenu">
-								<a class="nav-link collapsed" href="report_create.html"
+								<a class="nav-link collapsed" href="report_create"
 									style="font-size: 12px; font-weight: bold;"> 보고서 작성 </a> <a
-									class="nav-link collapsed" href="report_edit.html"
+									class="nav-link collapsed" href="report_edit"
 									style="font-size: 12px; font-weight: bold;"> 보고서 수정 </a>
 							</nav>
 						</div>
@@ -274,16 +274,16 @@
 								<div>
 									<a class="nav-link" href="profile"
 										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='/profile'">프로필</a>
+										onclick="event.preventDefault(); window.location.href='profile'">프로필</a>
 									<a class="nav-link" href="security"
 										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='/security'">보안</a>
+										onclick="event.preventDefault(); window.location.href='security'">보안</a>
 									<a class="nav-link" href="notifications"
 										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='/notifications'">설정</a>
+										onclick="event.preventDefault(); window.location.href='notifications'">설정</a>
 									<a class="nav-link" href="join_multi"
 										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='/join_multi'">권한부여</a>
+										onclick="event.preventDefault(); window.location.href='join_multi'">권한부여</a>
 								</div>
 							</nav>
 						</div>
@@ -299,7 +299,7 @@
 							</div>
 						</a>
 						<!-- 장비관리 -->
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="equipment" data-bs-toggle="collapse"
 							data-bs-target="#collapseUtilities" aria-expanded="false"
 							aria-controls="collapseUtilities">
 							<div class="nav-link-icon">
@@ -310,7 +310,7 @@
 							</div>
 						</a>
 						<!-- 염전관리 -->
-						<a class="nav-link collapsed" href="javascript:void(0);"
+						<a class="nav-link collapsed" href="salt_farm"
 							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
 							aria-expanded="false" aria-controls="collapseUtilities">
 							<div class="nav-link-icon">
@@ -321,7 +321,7 @@
 							</div>
 						</a>
 						<!-- 센서등록 -->
-						<a class="nav-link collapsed" href="javascript:void(0);"
+						<a class="nav-link collapsed" href="seneor"
 							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
 							aria-expanded="false" aria-controls="collapseUtilities">
 							<div class="nav-link-icon">
@@ -349,6 +349,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"
 		crossorigin="anonymous"></script>
 	<script src="js/litepicker.js"></script>
+	<script>
+	$(document).ready(function() {
+	    // 여기서 토글 버튼 클릭 이벤트 바인딩 코드 작성
+	});
+	</script>
 
 </body>
 

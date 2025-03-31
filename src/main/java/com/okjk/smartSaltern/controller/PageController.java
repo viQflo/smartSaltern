@@ -119,9 +119,20 @@ public class PageController {
         return "header"; 
     }
     
-    @GetMapping("/footer")
-    public String footer() {
-        return "footer"; 
+    @GetMapping("/sensor")
+    public String sensor() {
+        return "sensor"; 
+    }
+    
+    @GetMapping("/equipment")
+    public String equipment() {
+        return "equipment"; 
+    }
+    
+    
+    @GetMapping("/salt_farm")
+    public String salt_farm() {
+        return "salt_farm"; 
     }
     
     
