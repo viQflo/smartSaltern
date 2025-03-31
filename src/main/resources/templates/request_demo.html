@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Posts List - SB Admin Pro</title>
+<title>체험요청</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -23,7 +23,8 @@
 </head>
 
 <body class="nav-fixed">
-
+<!-- 해더시작 -->
+	<div th:replace="fragments/header"></div>
 	<!-- 로딩 화면 -->
 	<div id="loading-screen">
 		<main>
@@ -100,7 +101,7 @@
 		</main>
 	</div>
 	<!-- 푸터 포함 -->
-	<div th:replace="~{fragments/footer}"></div>
+	<div th:replace="fragments/footer"></div>
 	<script>
 		// 체험 요청 제출 기능
 		function submitRequest() {

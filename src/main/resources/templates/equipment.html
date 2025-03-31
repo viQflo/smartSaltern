@@ -25,14 +25,17 @@
 </head>
 
 
-<body class="nav-fixed">
-	<!-- 로딩 화면 -->
-	<div id="loading-screen">
+<body>
+	<!-- 헤더 포함 -->
+	<div th:replace="fragments/header"></div>
+	<div class="container-xl px-4 mt-5">
 	
 	
+	</div>
 
-		<!-- 푸터 포함 -->
-		<div th:replace="~{fragments/footer}"></div>
+
+	<!-- 푸터 포함 -->
+	<div th:replace="~{fragments/footer}"></div>
 </body>
 
 </html>

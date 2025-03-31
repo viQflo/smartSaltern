@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>센서 페이지</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+	rel="stylesheet" />
+<link
+	href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+	rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+<script data-search-pseudo-elements defer
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+	crossorigin="anonymous"></script>
+</head>
+
+<body class="nav-fixed">
+	<!-- 헤더 포함 -->
+	<div th:replace="fragments/header"></div>
+	<!-- 메인  -->
+	<div class="container-xl px-4 mt-5">
+		<main>
+			<section class="sensor-monitoring mt-5" >
+				<h2>염전 관리</h2>
+				<div class="gauges">
+					<div class="gauge">
+						<h3>풍속</h3>
+						<div class="meter">
+							<span>0.0 m/s</span>
+						</div>
+					</div>
+					<div class="gauge">
+						<h3>온도</h3>
+						<div class="meter">
+							<span>0.0 °C</span>
+						</div>
+					</div>
+					<div class="gauge">
+						<h3>습도</h3>
+						<div class="meter">
+							<span>0.0 %</span>
+						</div>
+					</div>
+				</div>
+				<section class="log-list">
+					<h3>염전 리스트</h3>
+					<table class="table-list">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>염전명</th>
+								<th>등록날짜</th>
+								<th>주소</th>
+								<th>습도</th>
+								<th>풍속</th>
+								<th>일조량</th>
+								<th>상태</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>염전 1</td>
+								<td>2022-11-12</td>
+								<td>서울</td>
+								<td>20.0 °C</td>
+								<td>65%</td>
+								<td>5.0 m/s</td>
+								<td>1500 W/m²</td>
+								<td>정상</td>
+							</tr>
+							<!-- 추가 로그 데이터 -->
+						</tbody>
+					</table>
+				</section>
+				<button class="add-unit">염전 등록하기</button>
+			</section>
+			<section class="sensor-monitoring">
+				<section class="log-list">
+					<h2>센서 관리</h2>
+					<table class="table-list">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>ID</th>
+								<th>설치날짜</th>
+								<th>무</th>
+								<th>수정/삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>1025</td>
+								<td>22-11-12</td>
+								<td>무</td>
+								<td><button class="edit-sensor">수정</button>
+									<button class="delete-sensor">삭제</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<button class="add-unit">센서 등록하기</button>
+			</section>
+		</main>
+	</div>
+	<!-- 푸터 포함 -->
+	<div th:replace="~{fragments/footer}"></div>
+	<script>
+        // 수정 및 삭제
+        document.addEventListener('DOMContentLoaded', function () {
+            // 수정 버튼 클릭 시
+            const editButtons = document.querySelectorAll('.edit-sensor');
+            editButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    const row = event.target.closest('tr'); // 버튼이 속한 행
+                    const sensorId = row.getAttribute('data-id'); // 센서 ID 가져오기
+
+                    // 예시: 센서 정보를 수정할 수 있는 폼을 띄우는 방법
+                    const newTemperature = prompt("새로운 온도를 입력하세요:", row.cells[3].textContent);
+                    const newHumidity = prompt("새로운 습도를 입력하세요:", row.cells[4].textContent);
+
+                    // 데이터를 수정
+                    if (newTemperature && newHumidity) {
+                        row.cells[3].textContent = newTemperature; // 온도 업데이트
+                        row.cells[4].textContent = newHumidity;   // 습도 업데이트
+
+                        // 여기서 실제로 서버로 데이터 보내기 (예: AJAX 호출)
+                        // 예: updateSensorData(sensorId, newTemperature, newHumidity);
+                    }
+                });
+            });
+
+            // 삭제 버튼 클릭 시
+            const deleteButtons = document.querySelectorAll('.delete-sensor');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    const row = event.target.closest('tr'); // 버튼이 속한 행
+                    const sensorId = row.getAttribute('data-id'); // 센서 ID 가져오기
+
+                    // 삭제 확인 팝업
+                    const confirmDelete = confirm("정말 삭제하시겠습니까?");
+                    if (confirmDelete) {
+                        row.remove(); // 해당 행 삭제
+                        // 여기에 삭제된 센서 정보를 서버에 전달하여 실제로 삭제 처리할 수 있음
+                        // 예: deleteSensorData(sensorId);
+                    }
+                });
+            });
+        });
+
+
+        // 예시 데이터 업데이트 (실제로는 API나 센서 값으로 대체될 수 있습니다)
+        document.querySelectorAll('.gauge').forEach(function (gauge) {
+            let meter = gauge.querySelector('.meter span');
+
+            if (gauge.querySelector('h3').textContent === 'Wind Speed') {
+                meter.textContent = '12.3 m/s';  // 예시로 풍속을 설정
+            } else if (gauge.querySelector('h3').textContent === 'Temperature') {
+                meter.textContent = '22.5 °C';  // 예시로 온도를 설정
+            } else if (gauge.querySelector('h3').textContent === 'Humidity') {
+                meter.textContent = '65.3 %';  // 예시로 습도를 설정
+            }
+        });
+
+        // 실시간 데이터 업데이트 (가상의 예시)
+        function updateSensorData(sensorId) {
+            // AJAX 요청으로 데이터를 받아오는 코드
+            fetch('/get-sensor-data/' + sensorId)
+                .then(response => response.json())
+                .then(data => {
+                    // 데이터 업데이트
+                    document.querySelector(`#sensor-${sensorId} .temp`).textContent = `${data.temperature} °C`;
+                    document.querySelector(`#sensor-${sensorId} .humidity`).textContent = `${data.humidity}%`;
+                    // 추가적으로 다른 센서 값들도 업데이트
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+    </script>
+</body>
+
+</html>

@@ -119,9 +119,9 @@ public class PageController {
         return "header"; 
     }
     
-    @GetMapping("/sensor")
+    @GetMapping("/salt_sensor")
     public String sensor() {
-        return "sensor"; 
+        return "salt_sensor"; 
     }
     
     @GetMapping("/equipment")
@@ -130,11 +130,7 @@ public class PageController {
     }
     
     
-    @GetMapping("/salt_farm")
-    public String salt_farm() {
-        return "salt_farm"; 
-    }
-    
+   
     
 
     

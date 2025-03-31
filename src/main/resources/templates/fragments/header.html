@@ -23,21 +23,20 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
 	crossorigin="anonymous"></script>
 </head>
-
-<body class="nav-fixed sidenav-toggled">
+<body class="nav-fixed ">
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
 		id="sidenavAccordion">
 		<!-- Sidenav Toggle Button-->
 		<button
 			class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0"
-			id="sidebarToggle" >
+			id="sidebarToggle">
 			<i data-feather="menu"></i>
 		</button>
 		<!-- 로고  -->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main">Saltlution
-			<img src="assets/img/backgrounds/SaltLution.png"
-			alt="Saltlution Logo" style="height: 40px; width: auto;">
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main">Saltlution <img
+			src="assets/img/backgrounds/SaltLution.png" alt="Saltlution Logo"
+			style="height: 40px; width: auto;">
 		</a>
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
@@ -136,10 +135,11 @@
 			<!-- 사용자 Dropdown-->
 			<li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
 				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
-				id="navbarDropdownUserImage" href="#"
-				role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"><img class="img-fluid"
-					src="assets/img/illustrations/profiles/profile-1.png" /></a>
+				id="navbarDropdownUserImage" href="#" role="button"
+				data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img class="img-fluid"
+					src="assets/img/illustrations/profiles/profile-1.png"  width="40" height="40" />
+			</a>
 				<div
 					class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
 					aria-labelledby="navbarDropdownUserImage">
@@ -147,7 +147,6 @@
 						<img class="dropdown-user-img"
 							src="assets/img/illustrations/profiles/profile-1.png" />
 						<div class="dropdown-user-details">
-							<div class="dropdown-user-details-name">이름</div>
 							<div class="dropdown-user-details-email">이메일</div>
 						</div>
 					</h6>
@@ -211,7 +210,6 @@
 						</div>
 						<!-- 보고서 -->
 						<div class="sidenav-menu-heading">보고서 관리</div>
-
 						<a class="nav-link collapsed" data-bs-toggle="collapse"
 							data-bs-target="#collapsePages" aria-expanded="false"
 							aria-controls="collapsePages">
@@ -231,7 +229,6 @@
 									style="font-size: 12px; font-weight: bold;"> 보고서 리스트 </a>
 							</nav>
 						</div>
-
 						<a class="nav-link collapsed" data-bs-toggle="collapse"
 							data-bs-target="#collapseReports" aria-expanded="false"
 							aria-controls="collapseApps">
@@ -271,24 +268,19 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav accordion"
 								id="accordionSidenavLayout">
-								<div>
-									<a class="nav-link" href="profile"
-										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='profile'">프로필</a>
-									<a class="nav-link" href="security"
-										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='security'">보안</a>
-									<a class="nav-link" href="notifications"
-										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='notifications'">설정</a>
-									<a class="nav-link" href="join_multi"
-										style="font-size: 12px; font-weight: bold;"
-										onclick="event.preventDefault(); window.location.href='join_multi'">권한부여</a>
-								</div>
+								<a class="nav-link" href="profile"
+									style="font-size: 12px; font-weight: bold;">프로필</a> <a
+									class="nav-link" href="security"
+									style="font-size: 12px; font-weight: bold;">보안</a> <a
+									class="nav-link" href="notifications"
+									style="font-size: 12px; font-weight: bold;">설정</a> <a
+									class="nav-link" href="join_multi"
+									style="font-size: 12px; font-weight: bold;">권한부여</a>
 							</nav>
 						</div>
+
 						<!-- 데이터 조회 -->
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="#"
 							data-bs-target="#collapseComponents" aria-expanded="false"
 							aria-controls="collapseComponents">
 							<div class="nav-link-icon">
@@ -299,7 +291,7 @@
 							</div>
 						</a>
 						<!-- 장비관리 -->
-						<a class="nav-link collapsed" href="equipment" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="equipment"
 							data-bs-target="#collapseUtilities" aria-expanded="false"
 							aria-controls="collapseUtilities">
 							<div class="nav-link-icon">
@@ -309,24 +301,13 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!-- 염전관리 -->
-						<a class="nav-link collapsed" href="salt_farm"
-							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
-							aria-expanded="false" aria-controls="collapseUtilities">
-							<div class="nav-link-icon">
-								<i data-feather="tool"></i>
-							</div> 염전관리
-							<div class="sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
 						<!-- 센서등록 -->
-						<a class="nav-link collapsed" href="seneor"
-							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
-							aria-expanded="false" aria-controls="collapseUtilities">
+						<a class="nav-link collapsed" href="salt_sensor"
+							data-bs-target="#collapseUtilities" aria-expanded="false"
+							aria-controls="collapseUtilities">
 							<div class="nav-link-icon">
 								<i data-feather="tool"></i>
-							</div> 센서 관리
+							</div> 염전/센서 관리
 							<div class="sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -349,11 +330,38 @@
 	<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"
 		crossorigin="anonymous"></script>
 	<script src="js/litepicker.js"></script>
+
 	<script>
-	$(document).ready(function() {
-	    // 여기서 토글 버튼 클릭 이벤트 바인딩 코드 작성
-	});
-	</script>
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (collapseLink) {
+        collapseLink.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-bs-target');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement.classList.contains('show')) {
+                // 이미 열려 있으면 닫기
+                targetElement.classList.remove('show');
+            } else {
+                // 닫혀 있으면 열기
+                targetElement.classList.add('show');
+            }
+        });
+    });
+        // 사이드바 토글
+        const sidebarToggle = document.body.querySelector('#sidebarToggle');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', event => {
+                event.preventDefault();
+                document.body.classList.toggle('sidenav-toggled');
+                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sidenav-toggled'));
+            });
+        }
+
+        // 페이지가 로드될 때 사이드바 상태 복원
+        if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+            document.body.classList.add('sidenav-toggled');
+        }
+        
+    </script>
 
 </body>
 
