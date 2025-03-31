@@ -2,6 +2,8 @@ package com.okjk.smartSaltern.controller;
 
 import com.okjk.smartSaltern.entity.User;
 import com.okjk.smartSaltern.security.CustomUserDetails;
+
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,15 @@ public class PageController {
     public String main(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
         if (userDetails != null) {
             User user = userDetails.getUser();
-            model.addAttribute("loginUser", user);
+            if (user != null) {
+                model.addAttribute("loginUser", user);
+            } else {
+                // user가 null인 경우, 예외 처리 혹은 로그인 페이지로 리다이렉트
+                return "redirect:/login";
+            }
+        } else {
+            // userDetails가 null인 경우, 로그인 페이지로 리다이렉트
+            return "redirect:/login";
         }
         return "main";
     }
@@ -30,16 +40,6 @@ public class PageController {
         return "join"; // templates/join.html
     }
 
-    
-    @RequestMapping("/header")
-    public String header() {
-        return "header"; 
-    }
-    
-    @RequestMapping("/footer")
-    public String footer() {
-        return "footer"; 
-    }
     
     @RequestMapping("/alert")
     public String alert() {

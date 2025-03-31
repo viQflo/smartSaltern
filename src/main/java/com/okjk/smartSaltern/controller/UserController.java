@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,17 @@ import org.springframework.ui.Model;
 @Controller
 public class UserController {
 
+	 @ExceptionHandler(Exception.class)
+	    public String handleException(Exception e, Model model) {
+	        // 예외 메시지 로그에 기록
+	        e.printStackTrace();
+
+	        // 사용자에게 적절한 메시지를 표시
+	        model.addAttribute("error", e.getMessage());
+	        return "errorPage";  // errorPage는 에러 화면으로 이동하는 템플릿
+	    }
+	
+	
     @Autowired
     private UserService userService;
     
@@ -69,6 +81,8 @@ public class UserController {
     public String passwordFindPage() {
         return "password_find"; // password_find.html을 반환
     }
+    
+    
     
     
 }
