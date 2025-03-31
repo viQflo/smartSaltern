@@ -7,7 +7,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Account Settings - Notifications - SB Admin Pro</title>
+<title>메세지창</title>
 <link href="css/styles.css" rel="stylesheet" />
 <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
 <script data-search-pseudo-elements defer
@@ -20,43 +20,44 @@
 <style>
 </style>
 <body>
-	<!-- 로딩 화면 -->
-	<div id="loading-screen">
-		<div id="layoutSidenav_content">
-			<main>
-				<header
-					class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
-					<div class="container-xl px-4">
-						<div class="page-header-content pt-4">
-							<div class="row align-items-center justify-content-between">
-								<div class="col-auto mt-4">
-									<h1 class="page-header-title">
-										<div class="page-header-icon">
-											<i data-feather="layout"></i>
-										</div>
-										메세지
-									</h1>
-								</div>
+	<!-- 헤더 포함 -->
+	<div th:replace="fragments/header"></div>
+	<!-- 메인  -->
+	<div class="container-xl px-4 mt-5">
+		<main>
+			<header
+				class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+				<div class="container-xl px-4">
+					<div class="page-header-content pt-4">
+						<div class="row align-items-center justify-content-between">
+							<div class="col-auto mt-4">
+								<h1 class="page-header-title">
+									<div class="page-header-icon">
+										<i data-feather="layout"></i>
+									</div>
+									메세지
+								</h1>
 							</div>
-							<nav class="mt-4 rounded" aria-label="breadcrumb">
-								<ol class="breadcrumb px-3 py-2 rounded mb-0">
-									<li class="breadcrumb-item"><a href="#">메시지 작성</a></li>
-								</ol>
-							</nav>
 						</div>
-					</div>
-				</header>
-				<!-- Main page content-->
-				<div class="container-xl px-4 mt-n10">
-					<div class="card">
-						<div class="card-header">메세지명</div>
-						<div class="card-body">메세지 내용</div>
+						<nav class="mt-4 rounded" aria-label="breadcrumb">
+							<ol class="breadcrumb px-3 py-2 rounded mb-0">
+								<li class="breadcrumb-item"><a href="#">메시지 작성</a></li>
+							</ol>
+						</nav>
 					</div>
 				</div>
-			</main>
-		</div>
+			</header>
+			<!-- Main page content-->
+			<div class="container-xl px-4 mt-n10">
+				<div class="card">
+					<div class="card-header">메세지명</div>
+					<div class="card-body">메세지 내용</div>
+				</div>
+			</div>
+		</main>
+	</div>
 
-		<!-- 푸터 포함 -->
-		<div th:replace="~{fragments/footer}"></div>
+	<!-- 푸터 포함 -->
+	<div th:replace="~{fragments/footer}"></div>
 </body>
 </html>
