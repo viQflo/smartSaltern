@@ -9806,14 +9806,12 @@ none
 	animation: placeholder-glow 2s ease-in-out infinite;
 }
 
-@
--webkit-keyframes placeholder-glow { 50% {
+@-webkit-keyframes placeholder-glow { 50% {
 	opacity: 0.2;
 }
 
 }
-@
-keyframes placeholder-glow { 50% {
+@keyframes placeholder-glow { 50% {
 	opacity: 0.2;
 }
 
@@ -9829,15 +9827,13 @@ keyframes placeholder-glow { 50% {
 	animation: placeholder-wave 2s linear infinite;
 }
 
-@
--webkit-keyframes placeholder-wave { 100% {
+@-webkit-keyframes placeholder-wave { 100% {
 	-webkit-mask-position: -200% 0%;
 	mask-position: -200% 0%;
 }
 
 }
-@
-keyframes placeholder-wave { 100% {
+@keyframes placeholder-wave { 100% {
 	-webkit-mask-position: -200% 0%;
 	mask-position: -200% 0%;
 }
