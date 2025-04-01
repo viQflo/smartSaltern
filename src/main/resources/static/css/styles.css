@@ -9564,15 +9564,13 @@ keyframes progress-bar-stripes { 0% {
 	color: #000;
 }
 
-@
--webkit-keyframes spinner-border {to { transform:rotate(360deg)
+@-webkit-keyframes spinner-border {to { transform:rotate(360deg)
 	/* rtl:ignore */;
 	
 }
 
 }
-@
-keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
+@keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
 	
 }
 
@@ -9595,15 +9593,11 @@ keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
 	border-width: 0.2em;
 }
 
-@
--webkit-keyframes spinner-grow { 0% {
+@-webkit-keyframes spinner-grow { 0% {
 	transform: scale(0);
 }
 
-50
-
-
-%
+50%
 {
 opacity
 
@@ -9627,15 +9621,11 @@ none
 
 }
 }
-@
-keyframes spinner-grow { 0% {
+@keyframes spinner-grow { 0% {
 	transform: scale(0);
 }
 
-50
-
-
-%
+50%
 {
 opacity
 
