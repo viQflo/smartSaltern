@@ -104,34 +104,20 @@
 							<div class="card-body">
 								<h5>측정 로그 리스트</h5>
 								<table class="table table-bordered">
-									<thead>
-										<tr>
-											<th>시간</th>
-											<th>센서</th>
-											<th>값</th>
-											<th>상태</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>2025-03-26 10:00</td>
-											<td>온도</td>
-											<td>23.5°C</td>
-											<td>정상</td>
-										</tr>
-										<tr>
-											<td>2025-03-26 10:00</td>
-											<td>습도</td>
-											<td>45%</td>
-											<td>정상</td>
-										</tr>
-										<tr>
-											<td>2025-03-26 10:00</td>
-											<td>풍속</td>
-											<td>5.2 m/s</td>
-											<td>주의</td>
-										</tr>
-									</tbody>
+								  <thead>
+								    <tr>
+								      <th>시간</th>
+								      <th>센서 상태</th>
+								      <th>온도 (℃)</th>
+								      <th>습도 (%)</th>
+								      <th>강수량 (mm)</th>
+								      <th>일조량 (h)</th>
+								      <th>상태 메모</th>
+								    </tr>
+								  </thead>
+								  <tbody id="sensor-log-body">
+								    <!-- JavaScript에서 동적으로 채움 -->
+								  </tbody>
 								</table>
 							</div>
 						</div>
