@@ -84,8 +84,15 @@ public class TbEnv {
 		this.measureDatetime = measureDatetime;
 	}
 
-	public BigDecimal getSensorType() {
-		return sensorType;
+	private BigDecimal getSensorType(String category) {
+	    return switch (category) {
+	        case "TMP" -> BigDecimal.valueOf(1); // 기온
+	        case "REH" -> BigDecimal.valueOf(2); // 습도
+	        case "WSD" -> BigDecimal.valueOf(3); // 풍속
+	        case "PCP" -> BigDecimal.valueOf(4); // 강수
+	        case "SUN" -> BigDecimal.valueOf(5); // 일조/일사
+	        default -> BigDecimal.ZERO;
+	    };
 	}
 
 	public void setSensorType(BigDecimal sensorType) {

@@ -2,6 +2,7 @@ package com.okjk.smartSaltern.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -26,20 +27,25 @@ public class WeatherService {
     public void saveWeatherData(List<WeatherItem> items, Long sensorId, Long saltPondId) {
         for (WeatherItem item : items) {
             try {
+                // category -> sensorType 매핑
                 double sensorTypeCode = SensorType.fromCategory(item.getCategory());
-                BigDecimal sensorVal = new BigDecimal(item.getObsrValue());
+                BigDecimal sensorVal = new BigDecimal(item.getFcstValue());
+
+                // fcstDate + fcstTime → LocalDateTime 변환
+                String dateTimeStr = item.getFcstDate() + "T" + item.getFcstTime().substring(0, 2) + ":00:00";
+                LocalDateTime measureDateTime = LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
                 TbEnv env = new TbEnv();
                 env.setSensorId(sensorId);
                 env.setSaltPondId(saltPondId);
                 env.setSensorType(BigDecimal.valueOf(sensorTypeCode));
                 env.setSensorVal(sensorVal);
-                env.setMeasureDatetime(LocalDateTime.now());
+                env.setMeasureDatetime(measureDateTime);
                 env.setCreateDate(LocalDateTime.now());
 
                 tbEnvRepository.save(env);
+
             } catch (Exception e) {
-                // 로그로 남기기
                 System.err.println("기상 데이터 저장 실패: " + item + " / " + e.getMessage());
             }
         }
