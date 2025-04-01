@@ -7766,14 +7766,12 @@ textarea.form-control-lg {
 	color: #746b6d;
 }
 
-@
--webkit-keyframes progress-bar-stripes { 0% {
+@-webkit-keyframes progress-bar-stripes { 0% {
 	background-position-x: 1rem;
 }
 
 }
-@
-keyframes progress-bar-stripes { 0% {
+@keyframes progress-bar-stripes { 0% {
 	background-position-x: 1rem;
 }
 
@@ -9564,15 +9562,13 @@ keyframes progress-bar-stripes { 0% {
 	color: #000;
 }
 
-@
--webkit-keyframes spinner-border {to { transform:rotate(360deg)
+@-webkit-keyframes spinner-border {to { transform:rotate(360deg)
 	/* rtl:ignore */;
 	
 }
 
 }
-@
-keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
+@keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
 	
 }
 
@@ -9595,15 +9591,11 @@ keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
 	border-width: 0.2em;
 }
 
-@
--webkit-keyframes spinner-grow { 0% {
+@-webkit-keyframes spinner-grow { 0% {
 	transform: scale(0);
 }
 
-50
-
-
-%
+50%
 {
 opacity
 
@@ -9627,15 +9619,11 @@ none
 
 }
 }
-@
-keyframes spinner-grow { 0% {
+@keyframes spinner-grow { 0% {
 	transform: scale(0);
 }
 
-50
-
-
-%
+50%
 {
 opacity
 
@@ -9816,14 +9804,12 @@ none
 	animation: placeholder-glow 2s ease-in-out infinite;
 }
 
-@
--webkit-keyframes placeholder-glow { 50% {
+@-webkit-keyframes placeholder-glow { 50% {
 	opacity: 0.2;
 }
 
 }
-@
-keyframes placeholder-glow { 50% {
+@keyframes placeholder-glow { 50% {
 	opacity: 0.2;
 }
 
@@ -9839,15 +9825,13 @@ keyframes placeholder-glow { 50% {
 	animation: placeholder-wave 2s linear infinite;
 }
 
-@
--webkit-keyframes placeholder-wave { 100% {
+@-webkit-keyframes placeholder-wave { 100% {
 	-webkit-mask-position: -200% 0%;
 	mask-position: -200% 0%;
 }
 
 }
-@
-keyframes placeholder-wave { 100% {
+@keyframes placeholder-wave { 100% {
 	-webkit-mask-position: -200% 0%;
 	mask-position: -200% 0%;
 }
@@ -19948,8 +19932,7 @@ opacity
 	}
 }
 
-@
--moz-document url-prefix() { .nav-fixed #layoutSidenav
+@-moz-document url-prefix() { .nav-fixed #layoutSidenav
 	#layoutSidenav_nav .sidenav .sidenav-menu { overflow-y:auto;
 	
 }
@@ -20060,8 +20043,7 @@ opacity
 	}
 }
 
-@
--moz-document url-prefix() { .dropdown-notifications .dropdown-menu {
+@-moz-document url-prefix() { .dropdown-notifications .dropdown-menu {
 	overflow-y:auto;
 	
 }
