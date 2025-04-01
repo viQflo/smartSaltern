@@ -21,8 +21,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
 		crossorigin="anonymous"></script>
 
-<!-- Bootstrap (하나만 유지) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- main 페이지에서만 5.1.3 버전 사용 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" id="bootstrap-js"></script>
+<!-- profile 페이지에서만 5.3.0 버전 사용 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" id="bootstrap-js"></script>
 
 <!-- Custom Scripts -->
 <script src="js/scripts.js"></script>
@@ -325,6 +327,13 @@
 
 
 	<script>
+	// 드롭다운 수동으로 초기화
+	document.addEventListener('DOMContentLoaded', function () {
+	    var dropdownElements = document.querySelectorAll('.dropdown-toggle');
+	    dropdownElements.forEach(function (dropdownElement) {
+	        new bootstrap.Dropdown(dropdownElement);
+	    });
+	});
 
 
 	
