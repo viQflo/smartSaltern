@@ -11,12 +11,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 main {
-    min-height: 100vh; /* 뷰포트 높이에 맞춰 최소 크기를 설정 */
-    padding-top: 20px; /* 헤더와 간격을 띄우기 위해 패딩을 추가 */
+	min-height: 100vh; /* 뷰포트 높이에 맞춰 최소 크기를 설정 */
+	padding-top: 20px; /* 헤더와 간격을 띄우기 위해 패딩을 추가 */
 }
 
 .dropdown-menu {
-    z-index: 1050; /* 드롭다운이 다른 요소들 위로 올라오도록 설정 */
+	z-index: 1050; /* 드롭다운이 다른 요소들 위로 올라오도록 설정 */
 }
 
 .sensor-monitoring {
@@ -2519,7 +2519,7 @@ textarea.form-control-lg {
 }
 
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled 
-	~ .form-check-label {
+	 ~ .form-check-label {
 	opacity: 0.5;
 }
 
@@ -2770,16 +2770,16 @@ textarea.form-control-lg {
 }
 
 .form-floating>.form-control:focus ~ label, .form-floating>.dataTable-input:focus 
-	~ label, .form-floating>.form-control:not(:placeholder-shown) ~ label,
+	 ~ label, .form-floating>.form-control:not(:placeholder-shown) ~ label,
 	.form-floating>.dataTable-input:not(:placeholder-shown) ~ label,
 	.form-floating>.form-select ~ label, .form-floating>.dataTable-selector 
-	~ label {
+	 ~ label {
 	opacity: 0.65;
 	transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
 .form-floating>.form-control:-webkit-autofill ~ label, .form-floating>.dataTable-input:-webkit-autofill 
-	~ label {
+	 ~ label {
 	opacity: 0.65;
 	transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
@@ -9601,14 +9601,30 @@ keyframes spinner-border {to { transform:rotate(360deg) /* rtl:ignore */;
 }
 
 50
+
+
 %
 {
 opacity
+
+
 :
-1;
+
+
+1
+;
+
+
 transform
+
+
 :
-none;
+
+
+none
+;
+
+
 }
 }
 @
@@ -9617,14 +9633,30 @@ keyframes spinner-grow { 0% {
 }
 
 50
+
+
 %
 {
 opacity
+
+
 :
-1;
+
+
+1
+;
+
+
 transform
+
+
 :
-none;
+
+
+none
+;
+
+
 }
 }
 .spinner-grow {
@@ -16353,38 +16385,61 @@ body {
 	max-width: 20rem;
 }
 
-@
--webkit-keyframes fadeInUp { 0% {
+@-webkit-keyframes fadeInUp { 0% {
 	opacity: 0;
 	margin-top: 0.75rem;
 }
 
-100
-%
+100%
 {
 opacity
+
+
 :
-1;
+
+
+1
+;
+
+
 margin-top
+
+
 :
-0;
+
+
+0
+;
+
+
 }
 }
-@
-keyframes fadeInUp { 0% {
+@keyframes fadeInUp { 0% {
 	opacity: 0;
 	margin-top: 0.75rem;
 }
-
-100
-%
+100%
 {
 opacity
+
+
 :
-1;
+
+
+1
+;
+
+
 margin-top
+
+
 :
-0;
+
+
+0
+;
+
+
 }
 }
 .animated--fade-in-up {
@@ -16403,30 +16458,39 @@ margin-top
 	top: 0.125rem !important;
 }
 
-@
--webkit-keyframes fadeIn { 0% {
+@-webkit-keyframes fadeIn { 0% {
+	opacity: 0;
+}
+100%
+{
+opacity
+
+
+:
+
+
+1
+;
+
+
+}
+}
+@keyframes fadeIn { 0% {
 	opacity: 0;
 }
 
-100
-%
+100%
 {
 opacity
-:
-1;
-}
-}
-@
-keyframes fadeIn { 0% {
-	opacity: 0;
-}
 
-100
-%
-{
-opacity
+
 :
-1;
+
+
+1
+;
+
+
 }
 }
 .animated--fade-in {
