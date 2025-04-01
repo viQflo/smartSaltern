@@ -11,55 +11,52 @@ document.addEventListener("DOMContentLoaded", async function () {
         return date.replace(/-/g, "/");
     }
 
-    // 차트 그리기
-    function drawLineChart(canvasId, label, dataList) {
-        if (!dataList || dataList.length === 0) return;
+	function drawLineChart(canvasId, label, dataList) {
+	    if (!dataList || dataList.length === 0) return;
 
-        const labels = dataList.map(item => {
-            const timePart = item.time?.split(" ")[1] || "시간없음";
-            return timePart;
-        });
+	    const labels = dataList.map(item => {
+	        const timePart = item.time?.split("T")[1] || "시간없음"; // ← 여기만 바뀜
+	        return timePart;
+	    });
 
-        const data = dataList.map(item => item.value);
+	    const data = dataList.map(item => item.value);
+	    const dateStr = extractDateString(dataList);
+	    const ctx = document.getElementById(canvasId).getContext("2d");
 
-        const dateStr = extractDateString(dataList);
-        const ctx = document.getElementById(canvasId).getContext("2d");
+	    new Chart(ctx, {
+	        type: 'line',
+	        data: {
+	            labels: labels.reverse(),
+	            datasets: [{
+	                label: `${label} (${dateStr})`,
+	                data: data.reverse(),
+	                borderColor: 'rgba(0, 97, 242, 1)',
+	                backgroundColor: 'rgba(0, 97, 242, 0.1)',
+	                fill: false,
+	                tension: 0.1
+	            }]
+	        },
+	        options: {
+	            responsive: true,
+	            plugins: {
+	                legend: {
+	                    display: true,
+	                    align: 'start',
+	                    labels: { color: '#363d47' }
+	                }
+	            },
+	            scales: {
+	                x: {
+	                    title: { display: true, text: '시간' }
+	                },
+	                y: {
+	                    title: { display: true, text: label }
+	                }
+	            }
+	        }
+	    });
+	}
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels.reverse(),
-                datasets: [{
-                    label: `${label} (${dateStr})`,
-                    data: data.reverse(),
-                    borderColor: 'rgba(0, 97, 242, 1)',
-                    backgroundColor: 'rgba(0, 97, 242, 0.1)',
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        align: 'start',
-                        labels: { color: '#363d47' }
-                    }
-                },
-                scales: {
-                    x: {
-                        title: { display: true, text: '시간' }
-                    },
-                    y: {
-                        title: { display: true, text: label }
-                    }
-                }
-            }
-        });
-    }
-
-    // 센서 상태 기준
     function getSensorStatus(type, value) {
         switch (type) {
             case 'TMP':
@@ -163,4 +160,62 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // 테이블 출력
     renderSensorLogTable(jsonData);
+
+    // 👉 페이지네이션 로직 여기에 추가 예정
+	
+	
 });
+
+// 페이지네이션 로직
+const paginationContainer = document.getElementById("pagination");
+if (paginationContainer) {
+    const groupedByDate = {};
+
+    for (let i = 0; i < jsonData.TMP.length; i++) {
+        const date = jsonData.TMP[i]?.time?.split("T")[0] ?? "unknown";
+        if (!groupedByDate[date]) groupedByDate[date] = [];
+        groupedByDate[date].push(i); // 인덱스를 저장
+    }
+
+    const dateKeys = Object.keys(groupedByDate);
+    let currentPage = 0;
+
+    function updateTablePage(pageIndex) {
+        currentPage = pageIndex;
+        const indices = groupedByDate[dateKeys[pageIndex]];
+
+        const filteredData = {
+            TMP: indices.map(i => jsonData.TMP[i]),
+            REH: indices.map(i => jsonData.REH[i]),
+            PCP: indices.map(i => jsonData.PCP[i]),
+            SUN: indices.map(i => jsonData.SUN[i])
+        };
+
+        renderSensorLogTable(filteredData);
+        renderPagination();
+    }
+
+    function renderPagination() {
+        let html = "";
+
+        for (let i = 0; i < dateKeys.length; i++) {
+            html += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                <button class="page-link" onclick="goToPage(${i})">${i + 1}</button>
+            </li>`;
+        }
+
+        paginationContainer.innerHTML = `
+            <nav>
+                <ul class="pagination mb-0">
+                    ${html}
+                </ul>
+            </nav>
+        `;
+    }
+
+    // 글로벌 함수로 바인딩
+    window.goToPage = updateTablePage;
+
+    // 첫 페이지 출력
+    updateTablePage(0);
+}

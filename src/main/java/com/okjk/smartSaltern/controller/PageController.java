@@ -119,11 +119,18 @@ public class PageController {
         return "header"; 
     }
     
-    @GetMapping("/footer")
-    public String footer() {
-        return "footer"; 
+    @GetMapping("/salt_sensor")
+    public String sensor() {
+        return "salt_sensor"; 
     }
     
+    @GetMapping("/equipment")
+    public String equipment() {
+        return "equipment"; 
+    }
+    
+    
+   
     
 
     
