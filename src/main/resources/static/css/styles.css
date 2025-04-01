@@ -7766,7 +7766,16 @@ textarea.form-control-lg {
 	color: #746b6d;
 }
 
+@-webkit-keyframes progress-bar-stripes { 0% {
+	background-position-x: 1rem;
+}
 
+}
+@keyframes progress-bar-stripes { 0% {
+	background-position-x: 1rem;
+}
+
+}
 .progress {
 	display: flex;
 	height: 1rem;
@@ -19923,8 +19932,7 @@ opacity
 	}
 }
 
-@
--moz-document url-prefix() { .nav-fixed #layoutSidenav
+@-moz-document url-prefix() { .nav-fixed #layoutSidenav
 	#layoutSidenav_nav .sidenav .sidenav-menu { overflow-y:auto;
 	
 }
@@ -20035,8 +20043,7 @@ opacity
 	}
 }
 
-@
--moz-document url-prefix() { .dropdown-notifications .dropdown-menu {
+@-moz-document url-prefix() { .dropdown-notifications .dropdown-menu {
 	overflow-y:auto;
 	
 }
