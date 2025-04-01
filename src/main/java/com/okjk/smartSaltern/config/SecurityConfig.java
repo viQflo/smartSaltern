@@ -45,7 +45,7 @@ public class SecurityConfig {
 
 			.authenticationProvider(authenticationProvider()) // 인증 제공자 설정
 			.authorizeHttpRequests(auth -> auth
-					.requestMatchers("/login", "/join", "/register", "/password_find", // 비밀번호 찾기 페이지
+					.requestMatchers("/main", "/login", "/join", "/register", "/password_find", // 비밀번호 찾기 페이지
 																										// 추가
 							"/css/**", "/js/**", "/images/**", "/assets/**")
 					.permitAll() // 비밀번호 찾기 페이지와 기타 리소스들을 인증 없이 접근 허용
