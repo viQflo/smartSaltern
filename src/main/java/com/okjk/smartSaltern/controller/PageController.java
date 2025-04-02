@@ -20,20 +20,7 @@ public class PageController {
 
 	@GetMapping("/main")
     public String main(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
-        if (userDetails != null) {
-            User user = userDetails.getUser();
-            if (user != null) {
-                model.addAttribute("loginUser", user);
-            } else {
-                // user가 null인 경우 로깅 추가
-                System.out.println("User is null");
-                return "redirect:/login"; // 로그인 페이지로 리다이렉트
-            }
-        } else {
-            // userDetails가 null인 경우 로깅 추가
-            System.out.println("UserDetails is null");
-            return "redirect:/login"; // 로그인 페이지로 리다이렉트
-        }
+        
         return "main";
     }
 
@@ -78,6 +65,7 @@ public class PageController {
     public String profile() {
         return "profile"; 
     }
+    
     
     @GetMapping("/security")
     public String security() {

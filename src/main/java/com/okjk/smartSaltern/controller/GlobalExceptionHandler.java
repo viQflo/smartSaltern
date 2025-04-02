@@ -9,12 +9,14 @@ import  org.springframework.ui.Model;
 public class GlobalExceptionHandler {
 
 
-	    // 예외 처리 메서드
-	@ExceptionHandler(Exception.class)
-    public String handleException(Exception ex, Model model) {
-        model.addAttribute("error", "오류가 발생했습니다: " + ex.getMessage());
-        return "error";  // error.html로 이동
+	// ✅ 1. 인증 관련 예외 처리 (로그인 실패, 접근 권한 문제)
+    @ExceptionHandler(org.springframework.security.core.AuthenticationException.class)
+    public String handleAuthException(Exception ex, Model model) {
+        model.addAttribute("error", "로그인 오류: " + ex.getMessage());
+        return "login";  // 로그인 페이지로 이동
     }
+
+
 	
 }
 	
