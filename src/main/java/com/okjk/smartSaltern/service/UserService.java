@@ -64,9 +64,12 @@ public class UserService {
     
     
     // Update
+ 
     public User updateUser(String userId, User updatedUser) {
         return userRepository.findById(userId).map(user -> {
-            user.setUserPw(updatedUser.getUserPw());
+            if (updatedUser.getUserPw() != null && !updatedUser.getUserPw().isEmpty()) {
+                user.setUserPw(encoder.encode(updatedUser.getUserPw())); // 비밀번호 암호화
+            }
             user.setUserGender(updatedUser.getUserGender());
             user.setUserDepartment(updatedUser.getUserDepartment());
             user.setUpdateDate(LocalDateTime.now());  // 업데이트 시간 갱신

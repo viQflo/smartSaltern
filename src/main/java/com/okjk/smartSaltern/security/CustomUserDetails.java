@@ -58,6 +58,11 @@ public class CustomUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+	public String getUserDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
    
     

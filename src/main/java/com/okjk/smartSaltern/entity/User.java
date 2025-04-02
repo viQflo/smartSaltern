@@ -4,18 +4,19 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "TB_USER")
 @Getter
 @Setter
-
-
 public class User {
 
     @Id
     @Column(name = "USER_ID", length = 30, nullable = false)
     private String userId;
 
+    @JsonIgnore  //Json을 통해 pw를 보안적으로 숨기는 것
     @Column(name = "USER_PW", length = 255, nullable = false)
     private String userPw;
 
@@ -106,6 +107,9 @@ public class User {
 	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
 	}
-    
-    
+
+	
+
+	
+
 }

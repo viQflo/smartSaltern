@@ -1,8 +1,14 @@
 package com.okjk.smartSaltern.controller;
 
+import java.security.Principal;
+import java.util.Optional;
+
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,14 +17,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.okjk.smartSaltern.entity.User;
+import com.okjk.smartSaltern.repository.UserRepository;
+import com.okjk.smartSaltern.security.CustomUserDetails;
 import com.okjk.smartSaltern.service.UserService;
 
 import org.springframework.ui.Model;
 
 @Controller
+
 public class UserController {
 
 	 @ExceptionHandler(Exception.class)
@@ -45,6 +55,7 @@ public class UserController {
     // 로그인 페이지
     @GetMapping("/login")
     public String loginPage(@RequestParam(value = "error", required = false) String error, Model model) {
+    	
         if (error != null) {
             model.addAttribute("error", "로그인 실패! 아이디와 비밀번호를 다시 확인해주세요.");
         }
@@ -66,18 +77,14 @@ public class UserController {
     
     // Update
     @PutMapping("/update")
-    public ResponseEntity<User> updateUser(Authentication authentication, @RequestBody User updatedUser) {
-        String userId = authentication.name(); // 로그인된 사용자의 ID
-        User user = userService.updateUser(userId, updatedUser);
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.status(400).body(null); // 실패 시
-        }
+    public String updateUser(@ModelAttribute User user) {
+        userService.updateUser(user.getUserId(), user);
+        return "redirect:/profile";
     }
     
- 
-    
+    @Autowired
+    private UserRepository userRepository;
+   
     
     
 }
