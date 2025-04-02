@@ -14,6 +14,9 @@ public interface TbEnvRepository extends JpaRepository<TbEnv, Long> {
 	
 	List<TbEnv> findTop20BySensorIdOrderByMeasureDatetimeDesc(Long sensorId);
 	
+	List<TbEnv> findBySensorIdOrderByMeasureDatetimeAsc(Long sensorId);
+
+	
 	 @Query("SELECT new com.okjk.smartSaltern.dto.TbEnvDto(e.sensorType, e.sensorVal, e.measureDatetime) " +
 	           "FROM TbEnv e ORDER BY e.measureDatetime DESC")
 	    List<TbEnvDto> findAllForChart();

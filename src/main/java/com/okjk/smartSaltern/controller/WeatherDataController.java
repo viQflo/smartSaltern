@@ -34,7 +34,7 @@ public class WeatherDataController {
         );
 
         for (Long sensorId : sensorNames.keySet()) {
-            List<TbEnv> dataList = tbEnvRepository.findTop20BySensorIdOrderByMeasureDatetimeDesc(sensorId);
+            List<TbEnv> dataList = tbEnvRepository.findBySensorIdOrderByMeasureDatetimeAsc(sensorId);
             List<Map<String, Object>> chartData = new ArrayList<>();
 
             for (TbEnv env : dataList) {
